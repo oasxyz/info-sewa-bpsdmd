@@ -13,7 +13,13 @@ body {
 }
 
 /* ===== NAVBAR (sama kayak home) ===== */
-.navbar-custom { padding: 28px 0; }
+.navbar-custom { 
+  padding: 28px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: var(--peach-bg); 
+}
 
 .brand-logo {
   width: 56px; height: 56px; border-radius: 50%;
@@ -39,6 +45,9 @@ body {
 }
 .btn-pesan:hover { background: #2c2a26; color: #fff; }
 
+#formulir {
+  scroll-margin-top: 120px;
+}
 /* ===== PAGE WRAPPER (ukuran laptop, padding kiri-kanan tetap 40px) ===== */
 .page-wrap {
   max-width: 1200px;
