@@ -1,0 +1,167 @@
+:root {
+  --peach-bg: #ffffff;
+  --text-dark: #17150f;
+  --text-gray: #4a4640;
+  --btn-black: #17150f;
+  --danger-red: #c0324a;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--peach-bg);
+  color: var(--text-dark);
+}
+
+/* ===== NAVBAR (sama kayak home) ===== */
+.navbar-custom { padding: 28px 0; }
+
+.brand-logo {
+  width: 56px; height: 56px; border-radius: 50%;
+  background: #fff; display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; box-shadow: 0 0 0 1px rgba(0,0,0,.06);
+}
+
+.brand-logo svg { width: 30px; height: 30px; color: var(--text-dark); }
+
+.brand-text-main { font-weight: 700; font-size: 1.15rem; line-height: 1.2; letter-spacing: .3px; }
+.brand-text-sub { font-size: .82rem; color: var(--text-gray); line-height: 1.2; }
+
+.nav-links a {
+  color: var(--text-dark); text-decoration: none; font-weight: 500;
+  font-size: 1.02rem; margin: 0 22px;
+}
+.nav-links a:hover { opacity: .7; }
+.nav-links a.active { font-weight: 700; text-decoration: underline; text-underline-offset: 6px; }
+
+.btn-pesan {
+  background: var(--btn-black); color: #fff; border: none; border-radius: 999px;
+  padding: 14px 30px; font-weight: 600; font-size: .95rem; white-space: nowrap;
+}
+.btn-pesan:hover { background: #2c2a26; color: #fff; }
+
+/* ===== PAGE WRAPPER (ukuran laptop, padding kiri-kanan tetap 40px) ===== */
+.page-wrap {
+  max-width: 1200px;
+  margin: 40px auto 90px;
+  padding: 0 40px;
+}
+
+/* ===== FORMULIR CARD ===== */
+.form-card {
+  background: #fff;
+  border: 1px solid #e6e6e6;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 36px;
+  box-shadow: 0 10px 40px rgba(0,0,0,.18), 0 2px 8px rgba(0,0,0,.10);
+}
+
+.form-card-header {
+  background: #f5f5f5;
+  text-align: center;
+  padding: 22px 0;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #1b2a4b;
+  border-bottom: 1px solid #e2e2e2;
+}
+
+.form-card-body { padding: 40px; }
+
+.form-label {
+  font-weight: 700;
+  font-size: .92rem;
+  color: var(--text-dark);
+  margin-bottom: 6px;
+}
+
+.form-label .req { color: var(--danger-red); margin-left: 2px; }
+
+.form-control, .form-select {
+  border: 1px solid #d8d8d8;
+  border-radius: 5px;
+  padding: 10px 14px;
+  font-size: .92rem;
+}
+
+.form-control:focus, .form-select:focus {
+  border-color: var(--btn-black);
+  box-shadow: 0 0 0 .15rem rgba(23,21,15,.08);
+}
+
+.form-control::placeholder { color: #9a9a9a; }
+
+.radio-group { margin-top: 10px; display: flex; gap: 22px; }
+.radio-group .form-check-label { font-size: .9rem; color: var(--text-dark); }
+
+.btn-submit-pesan {
+  width: 100%;
+  background: var(--danger-red);
+  color: #fff;
+  border: none;
+  padding: 16px;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: .3px;
+}
+
+.btn-submit-pesan:hover { background: #a52640; color: #fff; }
+
+/* ===== PETUNJUK PEMESANAN CARD (ukuran & padding sama kayak form-card) ===== */
+.petunjuk-card {
+  background: #fbe3e6;
+  border-radius: 8px;
+  padding: 40px;
+  margin-bottom: 36px;
+  box-shadow: 0 10px 40px rgba(0,0,0,.18), 0 2px 8px rgba(0,0,0,.10);
+}
+
+.petunjuk-card h5 {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #6b1f2b;
+  margin-bottom: 16px;
+}
+
+.petunjuk-card ol {
+  color: #6b1f2b;
+  font-size: .95rem;
+  line-height: 1.75;
+  padding-left: 20px;
+  margin-bottom: 0;
+}
+
+.petunjuk-card ol li { margin-bottom: 10px; }
+.petunjuk-card ol li:last-child { margin-bottom: 0; }
+.petunjuk-card strong { font-weight: 700; }
+
+/* ===== FOOTER (sama kayak home) ===== */
+footer.site-footer {
+  background: #fff;
+  border-top: 1px solid #eee;
+  padding: 50px 20px 40px;
+  font-size: .85rem;
+  color: #55524c;
+}
+
+footer.site-footer h6 {
+  font-weight: 700; font-size: .85rem; color: var(--text-dark);
+  margin-bottom: 14px; letter-spacing: .3px;
+}
+
+footer.site-footer p { margin-bottom: 4px; line-height: 1.6; }
+footer.site-footer a { color: #55524c; text-decoration: none; }
+footer.site-footer a:hover { color: var(--text-dark); }
+
+.footer-social a {
+  width: 30px; height: 30px; border-radius: 50%; border: 1px solid #ddd;
+  display: inline-flex; align-items: center; justify-content: center;
+  margin-right: 8px; color: var(--text-dark); font-size: .85rem;
+}
+.footer-social a:hover { background: var(--text-dark); color: #fff; }
+
+@media (max-width: 860px) {
+  .nav-links { display: none; }
+  .page-wrap { padding: 0 40px; }
+  .form-card-body, .petunjuk-card { padding: 24px; }
+}

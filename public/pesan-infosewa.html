@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pesan Gedung - Info Sewa BPSDMD Provinsi Jawa Tengah</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+<link rel="stylesheet" href="css/pesan.css">
+
+</head>
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<nav class="navbar-custom">
+  <div class="container d-flex align-items-center justify-content-between">
+
+    <div class="d-flex align-items-center gap-2">
+      <div class="brand-logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+          <path d="M12 2 4 5v6c0 5 3.4 8.7 8 10 4.6-1.3 8-5 8-10V5l-8-3z"/>
+        </svg>
+      </div>
+      <div>
+        <div class="brand-text-main">INFO SEWA</div>
+        <div class="brand-text-sub">BPSDMD Provinsi Jawa Tengah</div>
+      </div>
+    </div>
+
+    <div class="nav-links d-none d-lg-flex">
+      <a href="#">Home</a>
+      <a href="#" class="active">Pesan</a>
+      <a href="#">Informasi</a>
+    </div>
+
+    <a href="#" class="btn-pesan">Pesan Gedung</a>
+  </div>
+</nav>
+
+<!-- ================= PAGE CONTENT ================= -->
+<div class="page-wrap">
+
+  <!-- ===== PETUNJUK PEMESANAN ===== -->
+  <div class="petunjuk-card">
+    <h5>Petunjuk Pemesanan:</h5>
+    <ol>
+      <li>Silakan isi identitas Anda dengan benar termasuk KTP (Kartu Tanda Penduduk), karena akan digunakan pada saat verifikasi.</li>
+      <li>Setelah berhasil melakukan pemesanan, Anda bisa melihat jadwal pemesanan Anda di menu 'Jadwal pemesanan'.</li>
+      <li>Setelah berhasil melakukan pemesanan, lakukan <strong>verifikasi paling lambat 7 hari setelah pemesanan</strong>, dengan cara datang langsung pada jam kerja ke <strong>Ruang Layanan Informasi BPSDMD Provinsi Jawa Tengah</strong> dan menunjukkan <strong>KTP</strong> beserta bukti cetak pemesanan online.</li>
+      <li>Jika dalam waktu 7 hari Anda belum melakukan verifikasi, data pemesanan Anda akan dihapus.</li>
+      <li>Pelunasan biaya sewa gedung dilakukan <strong>paling lambat 60 hari sebelum tanggal pemakaian.</strong> Apabila melebihi batas waktu tersebut maka pemesanan akan dibatalkan.</li>
+      <li>Penggunaan Gedung Sasana Widya Praja untuk acara Resepsi Pernikahan hanya bisa digunakan pada hari <strong>Jumat Malam, Sabtu, Minggu</strong> dan hari libur nasional.</li>
+      <li>Apabila terjadi pembatalan segera hubungi petugas.</li>
+    </ol>
+  </div>
+
+  <!-- ===== FORMULIR PEMESANAN ===== -->
+  <div class="form-card">
+    <div class="form-card-header">Formulir Pemesanan</div>
+    <div class="form-card-body">
+      <form>
+
+        <div class="row g-4 mb-1">
+          <div class="col-12">
+            <label class="form-label">No. KTP <span class="text-muted fw-normal">(Kartu Tanda Penduduk)</span><span class="req">*</span></label>
+            <input type="text" class="form-control" placeholder="Nomor KTP" required>
+          </div>
+        </div>
+
+        <div class="row g-4 mt-1">
+          <div class="col-md-6">
+            <label class="form-label">Nama pemesan<span class="req">*</span></label>
+            <input type="text" class="form-control" placeholder="Nama pemesan" required>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Nama pemakai<span class="req">*</span></label>
+            <input type="text" class="form-control" placeholder="Nama pemakai" required>
+          </div>
+        </div>
+
+        <div class="row g-4 mt-1">
+          <div class="col-md-6">
+            <label class="form-label">No. telepon pemesan<span class="req">*</span></label>
+            <input type="tel" class="form-control" placeholder="Nomor telepon pemesan" required>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">No. telepon pemakai<span class="req">*</span></label>
+            <input type="tel" class="form-control" placeholder="Nomor telepon pemakai" required>
+          </div>
+        </div>
+
+        <div class="row g-4 mt-1">
+          <div class="col-md-6">
+            <label class="form-label">Email<span class="req">*</span></label>
+            <input type="email" class="form-control" placeholder="Alamat email" required>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Alamat<span class="req">*</span></label>
+            <textarea class="form-control" rows="1" placeholder="Alamat" required></textarea>
+          </div>
+        </div>
+
+        <div class="row g-4 mt-1">
+          <div class="col-md-6">
+            <label class="form-label">Tanggal pemakaian<span class="req">*</span></label>
+            <input type="date" class="form-control" required>
+            <div class="radio-group">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="waktuPakai" id="waktuSiang" checked>
+                <label class="form-check-label" for="waktuSiang">siang</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="waktuPakai" id="waktuMalam">
+                <label class="form-check-label" for="waktuMalam">malam</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="waktuPakai" id="waktuSehari">
+                <label class="form-check-label" for="waktuSehari">1 hari</label>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Keperluan<span class="req">*</span></label>
+            <input type="text" class="form-control" placeholder="Contoh resepsi" required>
+          </div>
+        </div>
+
+        <div class="row g-4 mt-1 mb-4">
+          <div class="col-md-6">
+            <label class="form-label">Gedung yang dipesan</label>
+            <select class="form-select">
+              <option>Balai Sasana Widya Praja</option>
+              <option>Aula Muria</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-submit-pesan">Pesan Sekarang</button>
+      </form>
+    </div>
+  </div>
+
+</div>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="row gy-4">
+      <div class="col-md-4">
+        <h6>BPSDMD<br>PROVINSI JAWA TENGAH</h6>
+        <p>Jl. Setiabudi No. 201 A, Semarang 50263</p>
+        <p>Telepon: 024-7472046</p>
+        <p>Faximile: 7472930</p>
+        <p>Email: bpsdmd@jatengprov.go.id</p>
+      </div>
+      <div class="col-md-4 text-md-center">
+        <h6>Link Terkait</h6>
+        <p><a href="#">Website BPSDMD</a></p>
+        <p><a href="#">PPID BPSDMD</a></p>
+      </div>
+      <div class="col-md-4 text-md-end">
+        <h6>Follow Us</h6>
+        <div class="footer-social">
+          <a href="#"><i class="bi bi-instagram"></i></a>
+          <a href="#"><i class="bi bi-facebook"></i></a>
+          <a href="#"><i class="bi bi-twitter-x"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
