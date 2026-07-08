@@ -21,7 +21,7 @@ body {
   flex-shrink: 0; box-shadow: 0 0 0 1px rgba(0,0,0,.06);
 }
 
-.brand-logo svg { width: 30px; height: 30px; color: var(--text-dark); }
+.brand-logo img { width: 30px; height: 30px; color: var(--text-dark); }
 
 .brand-text-main { font-weight: 700; font-size: 1.15rem; line-height: 1.2; letter-spacing: .3px; }
 .brand-text-sub { font-size: .82rem; color: var(--text-gray); line-height: 1.2; }
@@ -35,7 +35,7 @@ body {
 
 .btn-pesan {
   background: var(--btn-black); color: #fff; border: none; border-radius: 999px;
-  padding: 14px 30px; font-weight: 600; font-size: .95rem; white-space: nowrap;
+  padding: 14px 30px; font-weight: 600; font-size: .95rem; white-space: nowrap; text-decoration: none;
 }
 .btn-pesan:hover { background: #2c2a26; color: #fff; }
 
