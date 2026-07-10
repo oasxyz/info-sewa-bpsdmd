@@ -1,6 +1,7 @@
 :root {
   --peach-bg: #ffffff;
-  --bg-active: #7b7b7b;
+  --black-bg: #212529;
+  --yellow-font: #fed136;
   --text-dark: #17150f;
   --text-gray: #4a4640;
   --btn-black: #17150f;
@@ -18,12 +19,32 @@ body {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background-color: var(--peach-bg);
+  background: var(--black-bg);
+}
+
+.nav-links {
+  display: flex;
+  gap: 8px;
+}
+
+.nav-links a {
+  color: var(--peach-bg);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.02rem;
+  min-width: 90px;
+  text-align: center;
+  margin: 0;
+}
+
+.nav-links a:hover {
+  opacity: .7;
 }
 
 .nav-links a.active { 
   font-weight: 700; 
   text-decoration: underline; 
+  text-decoration-color: var(--yellow-font);
   text-underline-offset: 6px; 
 }
 
@@ -31,7 +52,7 @@ body {
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  background: #fff;
+  background: var(--yellow-font);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -40,12 +61,12 @@ body {
 }
 
 .brand-logo img {
-  width: 30px;
-  height: 30px;
-  color: var(--text-dark);
+  width: 34px;
+  height: 34px;
 }
 
 .brand-text-main {
+  color: var(--yellow-font);
   font-weight: 700;
   font-size: 1.15rem;
   line-height: 1.2;
@@ -53,38 +74,26 @@ body {
 }
 
 .brand-text-sub {
+  color: var(--peach-bg);
   font-size: .82rem;
-  color: var(--text-gray);
   line-height: 1.2;
 }
 
-.nav-links a {
-  color: var(--text-dark);
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 1.02rem;
-  margin: 0 22px;
-}
-
-.nav-links a:hover {
-  opacity: .7;
-}
-
 .btn-lihat-jadwal {
-  background: var(--btn-black);
-  color: #fff;
+  background: var(--yellow-font);
+  color: #000000;
   border: none;
   border-radius: 999px;
   padding: 14px 30px;
-  font-weight: 600;
+  font-weight: 700;
   font-size: .95rem;
   white-space: nowrap;
   text-decoration: none;
 }
 
 .btn-lihat-jadwal:hover {
-  background: #2c2a26;
-  color: #fff;
+  background: #fff;
+  color: #fed136;
 }
 
 #jadwal {
@@ -275,7 +284,7 @@ body {
 .cta-banner {
   max-width: 900px;
   margin: 0 auto;
-  background: var(--btn-black);
+  background: var(--black-bg);
   color: #fff;
   text-align: center;
   padding: 20px;
@@ -287,23 +296,23 @@ body {
 }
 
 .cta-banner:hover { 
-  background: #2c2a26; 
-  color: #fff; 
+  background: var(--yellow-font); 
+  color: var(--black-bg); 
 }
 
 /* ===== FOOTER ===== */
 footer.site-footer {
-  background: #fff;
-  border-top: 1px solid #eee;
+  background: var(--yellow-font);
+  border-top: 1px solid var(--black-bg);
+  color: var(--text-gray);
   padding: 50px 20px 40px;
   font-size: .85rem;
-  color: #55524c;
 }
 
 footer.site-footer h6 {
+  color: var(--black-bg);
   font-weight: 700;
   font-size: .85rem;
-  color: var(--text-dark);
   margin-bottom: 14px;
   letter-spacing: .3px;
 }
@@ -314,30 +323,31 @@ footer.site-footer p {
 }
 
 footer.site-footer a {
-  color: #55524c;
+  color: var(--text-gray);
   text-decoration: none;
 }
 
 footer.site-footer a:hover { 
   color: var(--text-dark); 
+  text-decoration: underline;
 }
 
 .footer-social a {
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  border: 1px solid #ddd;
+  border: 1px solid var(--black-bg);
   display: inline-flex;
   align-items: center;
   justify-content: center;
   margin-right: 8px;
-  color: var(--text-dark);
+  color: var(--black-bg);
   font-size: .85rem;
 }
 
 .footer-social a:hover { 
-  background: var(--text-dark); 
-  border-color: var(--text-dark);
+  background: var(--black-bg); 
+  border-color: var(--black-bg);
   color: #fff; 
 }
 
