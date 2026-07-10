@@ -337,5 +337,11 @@ footer.site-footer a:hover {
 
 .footer-social a:hover { 
   background: var(--text-dark); 
+  border-color: var(--text-dark);
   color: #fff; 
+}
+
+.footer-social a:hover i,
+.footer-social a:hover .bi::before {
+  color:#fff;
 }
