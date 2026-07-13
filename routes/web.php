@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\PemesananController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\DB;
+
 
 Route::get('/', function () {
     return view('home-infosewa');
@@ -14,3 +16,16 @@ Route::get('/pesan/sukses', [PemesananController::class, 'sukses'])->name('pesan
 Route::get('/informasi', function () {
     return view('informasi');
 })->name('informasi');
+
+Route::get('/api/jadwal', function () {
+    $events = DB::table('pemesan')
+        ->select('tanggal_pakai', 'keperluan')
+        ->get()
+        ->map(fn($e) => [
+            'title' => $e->keperluan,
+            'start' => $e->tanggal_pakai,
+            'color' => '#e8834e',
+        ]);
+
+    return response()->json($events);
+});
