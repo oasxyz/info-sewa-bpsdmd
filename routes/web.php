@@ -14,3 +14,7 @@ Route::get('/pesan/sukses', [PemesananController::class, 'sukses'])->name('pesan
 Route::get('/informasi', function () {
     return view('informasi');
 })->name('informasi');
+
+Route::get('/admin/login', function () {
+    return view('auth.login'); 
+});

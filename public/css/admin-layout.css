@@ -1,0 +1,243 @@
+:root {
+  --black-bg: #212529;
+  --dark-nav: #1a1e21;
+  --sub-nav-bg: #343a40;
+  --yellow-font: #fed136;
+  --text-dark: #17150f;
+  --text-gray: #4a4640;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #f4f5f7;
+  color: var(--text-dark);
+  margin: 0;
+}
+
+/* ===== HEADER ===== */
+.admin-header {
+  background: var(--black-bg);
+  padding: 18px 0;
+}
+
+.admin-header-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.admin-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-logo {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--yellow-font);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.brand-logo img {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+}
+
+.brand-title {
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.brand-sub {
+  color: var(--yellow-font);
+  font-size: .82rem;
+  margin: 0;
+}
+
+.admin-user-dropdown {
+  position: relative;
+}
+
+.admin-user-btn {
+  background: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 9px 18px;
+  font-size: .88rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  cursor: pointer;
+}
+
+.admin-user-btn:hover,
+.admin-user-btn:focus {
+  background: #f0f0f0;
+}
+
+.admin-user-dropdown .dropdown-menu {
+  right: 0;
+  left: auto;
+  top: 100%;
+  margin-top: 6px;
+  font-size: .88rem;
+  min-width: 140px;
+}
+
+/* ===== SUB NAVBAR ===== */
+.admin-subnav {
+  background: var(--sub-nav-bg);
+}
+
+.admin-nav-menu {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+}
+
+.admin-nav-menu > li {
+  position: relative;
+}
+
+.admin-nav-menu > li > a {
+  display: block;
+  color: #fff;
+  font-weight: 500;
+  font-size: .95rem;
+  padding: 14px 18px;
+  text-decoration: none;
+}
+
+.admin-nav-menu > li > a:hover,
+.admin-nav-menu > li > a:focus {
+  background: rgba(255,255,255,.06);
+  color: #fff;
+}
+
+.admin-nav-menu > li.active > a {
+  font-weight: 700;
+  color: var(--yellow-font);
+  box-shadow: inset 0 -3px 0 var(--yellow-font);
+}
+
+.admin-nav-menu .dropdown-menu {
+  font-size: .9rem;
+  border: none;
+  box-shadow: 0 8px 24px rgba(0,0,0,.18);
+  min-width: 180px;
+}
+
+/* ===== CONTENT ===== */
+.content1 {
+  min-height: 500px;
+  padding: 30px 24px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* ===== FOOTER (samain kayak public site) ===== */
+footer.site-footer {
+  background: var(--yellow-font);
+  border-top: 1px solid var(--black-bg);
+  color: var(--text-gray);
+  padding: 40px 0 32px;
+  font-size: .85rem;
+  margin-top: 40px;
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.footer-col-center { text-align: center; }
+.footer-col-end { text-align: right; }
+
+footer.site-footer h6 {
+  color: var(--black-bg);
+  font-weight: 700;
+  font-size: .85rem;
+  margin-bottom: 14px;
+  letter-spacing: .3px;
+}
+
+footer.site-footer p {
+  margin-bottom: 4px;
+  line-height: 1.6;
+}
+
+footer.site-footer a {
+  color: var(--text-gray);
+  text-decoration: none;
+}
+
+footer.site-footer a:hover {
+  color: var(--text-dark);
+  text-decoration: underline;
+}
+
+.footer-social a {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid var(--black-bg);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px;
+  color: var(--black-bg);
+  font-size: .85rem;
+}
+
+.footer-social a:hover {
+  background: var(--black-bg);
+  border-color: var(--black-bg);
+  color: #fff;
+}
+
+/* ===== FANCYBOX CUSTOM (dari file lama, tetep dipake) ===== */
+.fancybox-custom .fancybox-skin { box-shadow: 0 0 50px #222; }
+a.fancybox img { border: none; box-shadow: 0 1px 7px rgba(0,0,0,0.6); transition: all 0.2s; }
+a.fancybox:hover img { transform: scale(1.03); }
+
+/* ===== RESPONSIVE TABEL (dari file lama, tetep dipake) ===== */
+@media screen and (max-width: 480px) {
+    table, tbody, tr, td { display: block; position: relative; }
+    tr { border-bottom: 8px solid #fff; }
+    th { display: none; }
+    td:before {
+        display: block; content: attr(data-content); position: absolute; left: 0; width: 120px;
+        background: #455868; color: #fff; font-weight: bold; padding: 0 10px;
+    }
+    td { padding-left: 130px; }
+}
+
+/* ===== RESPONSIVE HEADER/NAV ===== */
+@media (max-width: 768px) {
+  .admin-header-inner { flex-direction: column; align-items: flex-start; }
+  .admin-nav-menu { flex-direction: column; }
+  .footer-inner { grid-template-columns: 1fr; text-align: left; }
+  .footer-col-center, .footer-col-end { text-align: left; }
+}

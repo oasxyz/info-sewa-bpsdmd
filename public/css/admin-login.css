@@ -1,0 +1,198 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#fff;
+}
+
+/* ================= HEADER ================= */
+
+.top-header{
+
+    background:#24262b;
+    color:white;
+
+    height:105px;
+
+    display:flex;
+    align-items:center;
+}
+
+.header-logo{
+
+    width:55px;
+}
+
+.top-header h4{
+
+    color:#F8C63C;
+
+    font-size:30px;
+
+    font-weight:700;
+
+    margin-bottom:0;
+}
+
+.top-header p{
+
+    margin:0;
+
+    color:#ddd;
+
+    font-size:15px;
+}
+
+/* ================= LOGIN ================= */
+
+.login-container{
+
+    width:370px;
+
+    margin:70px auto;
+
+    text-align:center;
+}
+
+.login-logo{
+
+    width:75px;
+
+    margin-bottom:15px;
+}
+
+.login-container h5{
+
+    font-weight:600;
+
+    margin-bottom:18px;
+}
+
+.divider{
+
+    width:180px;
+
+    height:1px;
+
+    background:#999;
+
+    margin:0 auto 25px;
+}
+
+.login-container label{
+
+    display:block;
+
+    text-align:left;
+
+    font-size:14px;
+
+    margin-bottom:6px;
+}
+
+.login-container input{
+
+    height:42px;
+
+    border-radius:8px;
+
+    border:1px solid #ccc;
+}
+
+.login-container input:focus{
+
+    box-shadow:none;
+
+    border-color:#23C55E;
+}
+
+.btn-login{
+
+    width:100%;
+
+    height:42px;
+
+    border:none;
+
+    border-radius:6px;
+
+    background:#22C55E;
+
+    color:white;
+
+    font-weight:600;
+
+    transition:.3s;
+}
+
+.btn-login:hover{
+
+    background:#16A34A;
+}
+
+/* ================= FOOTER ================= */
+
+.footer{
+
+    margin-top:90px;
+
+    background:#F9C93B;
+
+    padding:45px 0;
+}
+
+.footer h5{
+
+    font-weight:700;
+}
+
+.footer p{
+
+    font-size:14px;
+}
+
+.footer a{
+
+    text-decoration:none;
+
+    color:#444;
+}
+
+.footer i{
+
+    font-size:24px;
+
+    cursor:pointer;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:768px){
+
+.top-header{
+
+    height:auto;
+
+    padding:20px;
+}
+
+.top-header h4{
+
+    font-size:20px;
+}
+
+.login-container{
+
+    width:90%;
+}
+
+.footer{
+
+    text-align:center;
+}
+
+}

@@ -14,7 +14,7 @@
 </head>
 <body>
 
-<!-- ================= NAVBAR ================= -->
+
 <nav class="navbar-custom">
   <div class="container d-flex align-items-center justify-content-between">
 
@@ -40,7 +40,6 @@
 
 @yield('content')
 
-<!-- ================= FOOTER ================= -->
 <footer class="site-footer">
   <div class="container">
     <div class="row gy-4">
