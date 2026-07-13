@@ -18,7 +18,7 @@ class PemesananController extends Controller
 public function store(Request $request)
 {
     $validated = $request->validate([
-        'no_ktp' => 'required|numeric|digits:16',
+        'no_ktp' => 'required|numeric',
         'nama_pemesan' => 'required',
         'nama_pemakai' => 'required',
         'no_telepon_pemesan' => 'required|numeric',
@@ -26,10 +26,30 @@ public function store(Request $request)
         'email' => 'required|email',
         'alamat' => 'required',
         'tanggal_pemakaian' => 'required|date',
-        'waktu_pakai' => 'required|in:siang,malam,sehari',
+        'waktu_pakai' => 'required|in:siang,malam,1hari',
         'keperluan' => 'required',
         'gedung' => 'required',
     ]);
+
+    // Cek duplikat slot
+    $cek = Pemesan::where('tanggal_pakai', $request->tanggal_pemakaian)
+        ->where('gedung', $request->gedung)
+        ->get();
+
+    foreach ($cek as $c) {
+        if ($c->waktu === 'SEHARI') {
+            return back()->withErrors(['tanggal_pemakaian' => 'Tanggal ini sudah dipesan FULL DAY untuk gedung ' . $request->gedung])->withInput();
+        }
+        if ($request->waktu_pakai === 'siang' && $c->waktu === 'SIANG') {
+            return back()->withErrors(['waktu_pakai' => 'Slot siang sudah dipesan di tanggal dan gedung ini'])->withInput();
+        }
+        if ($request->waktu_pakai === 'malam' && $c->waktu === 'MALAM') {
+            return back()->withErrors(['waktu_pakai' => 'Slot malam sudah dipesan di tanggal dan gedung ini'])->withInput();
+        }
+        if ($request->waktu_pakai === '1hari' && in_array($c->waktu, ['SIANG', 'MALAM'])) {
+            return back()->withErrors(['waktu_pakai' => 'Tidak bisa booking full day, karena slot siang/malam sudah ada yang pesan'])->withInput();
+        }
+    }
 
     // Simpan ke tabel pemesan
     $pemesan = Pemesan::create([
