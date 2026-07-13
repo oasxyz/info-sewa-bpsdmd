@@ -104,7 +104,7 @@
                 <label class="form-check-label" for="waktuMalam">malam</label>
               </div>
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="waktu_pakai" id="waktuSehari" value="sehari" {{ old('waktu_pakai') == 'sehari' ? 'checked' : '' }}>
+                <input class="form-check-input" type="radio" name="waktu_pakai" id="waktuSehari" value="1hari" {{ old('waktu_pakai') == '1hari' ? 'checked' : '' }}>
                 <label class="form-check-label" for="waktuSehari">1 hari</label>
               </div>
             </div>
