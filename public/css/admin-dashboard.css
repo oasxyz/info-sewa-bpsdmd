@@ -1,0 +1,78 @@
+.rekap-card {
+  background: #fff;
+  border: 1px solid #e6e6e6;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 20px 55px rgba(0,0,0,.28), 0 6px 18px rgba(0,0,0,.18);
+}
+
+.rekap-card-header {
+  background: #212529;
+  color: #fed136;
+  text-align: center;
+  padding: 16px 0;
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: .3px;
+}
+
+.rekap-card-body {
+  padding: 20px;
+}
+
+.table-responsive {
+  overflow-x: auto;
+}
+
+.rekap-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: .88rem;
+  min-width: 900px;
+}
+
+.rekap-table thead th {
+  background: #f5f5f5;
+  color: #17150f;
+  font-weight: 700;
+  padding: 10px 12px;
+  text-align: center;
+  border-bottom: 2px solid #fed136;
+  white-space: nowrap;
+}
+
+.rekap-table thead th:first-child {
+  text-align: left;
+}
+
+.rekap-table tbody td {
+  padding: 9px 12px;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+}
+
+.rekap-table tbody tr:nth-child(even) {
+  background: #fdf8e6;
+}
+
+.rekap-table tbody tr:hover {
+  background: #fff6d8;
+}
+
+.col-tahun {
+  text-align: left !important;
+  font-weight: 700;
+  color: #17150f;
+}
+
+.col-total {
+  font-weight: 700;
+  color: #212529;
+  background: #fef3c7;
+}
+
+.text-center {
+  text-align: center;
+  padding: 24px 0 !important;
+  color: #888;
+}

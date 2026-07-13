@@ -3,34 +3,47 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
-        // 1. Bikin tabel gedung (karena dipanggil di Gedung::all())
+        // 1. Tabel Admin (Baru)
+        Schema::create('admin', function (Blueprint $table) {
+            $table->id();
+            $table->string('user');
+            $table->string('password');
+            $table->timestamps();
+        });
+
+        // Insert akun admin awal (Password: Pa$$w0rdAdmin yang sudah di-hash)
+        DB::table('admin')->insert([
+            'user' => 'diklat',
+            'password' => Hash::make('Pa$$w0rdAdmin'),
+        ]);
+
+        // 2. Tabel gedung
         Schema::create('gedung', function (Blueprint $table) {
             $table->id();
             $table->string('nama_gedung');
             $table->timestamps();
         });
 
-        // 2. Bikin tabel pemesan
+        // 3. Tabel pemesan
         Schema::create('pemesan', function (Blueprint $table) {
             $table->id();
-            $table->string('no', 16); // no_ktp
-            $table->string('pemesan'); // nama_pemesan
-            $table->string('pemakai'); // nama_pemakai
+            $table->string('no', 16); 
+            $table->string('pemesan'); 
+            $table->string('pemakai'); 
             $table->string('email', 100); 
             $table->text('alamat');
             $table->string('telp', 20);
             $table->string('hp', 20);
             $table->string('keperluan');
             $table->date('tanggal_pakai');
-            $table->string('waktu', 20); // siang, malam, sehari
+            $table->string('waktu', 20); 
             $table->string('gedung'); 
             $table->string('fasilitas')->nullable();       
             $table->string('instansi')->nullable();        
@@ -39,7 +52,7 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        // 3. Bikin tabel pemakai
+        // 4. Tabel pemakai
         Schema::create('pemakai', function (Blueprint $table) {
             $table->id();
             $table->string('no', 16);
@@ -59,11 +72,9 @@ return new class extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
+        Schema::dropIfExists('admin'); // Jangan lupa drop admin juga
         Schema::dropIfExists('pemakai');
         Schema::dropIfExists('pemesan');
         Schema::dropIfExists('gedung');

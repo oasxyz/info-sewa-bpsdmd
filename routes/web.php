@@ -1,26 +1,24 @@
 <?php
 
 use App\Http\Controllers\PemesananController;
+use App\Http\Controllers\AdminAuthController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 
-
-Route::get('/', function () {
-    return view('home-infosewa');
-})->name('home');
-
+// User Routes
+Route::get('/', fn() => view('home-infosewa'))->name('home');
 Route::get('/pesan', [PemesananController::class, 'index'])->name('pesan');
 Route::post('/pesan', [PemesananController::class, 'store']);
 Route::get('/pesan/sukses', [PemesananController::class, 'sukses'])->name('pesan.sukses');
+Route::get('/informasi', fn() => view('informasi'))->name('informasi');
 
-Route::get('/informasi', function () {
-    return view('informasi');
-})->name('informasi');
+// Admin Routes
+Route::get('/admin/login', [AdminAuthController::class, 'showLoginForm'])->name('admin.login');
+Route::post('/admin/login', [AdminAuthController::class, 'login'])->name('admin.login.proses');
+Route::get('/admin/dashboard', [AdminAuthController::class, 'dashboard'])->name('admin.dashboard');
+Route::get('/admin/logout', [AdminAuthController::class, 'logout'])->name('admin.logout'); // Ubah ke GET
 
-
-Route::get('/admin/login', function () {
-        return view('auth.login'); 
-});
+// API Jadwal
 Route::get('/api/jadwal', function () {
     $events = DB::table('pemesan')
         ->select('tanggal_pakai', 'keperluan')
@@ -30,7 +28,5 @@ Route::get('/api/jadwal', function () {
             'start' => $e->tanggal_pakai,
             'color' => '#e8834e',
         ]);
-
     return response()->json($events);
-
 });

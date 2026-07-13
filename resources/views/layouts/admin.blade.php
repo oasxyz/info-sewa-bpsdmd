@@ -24,7 +24,7 @@
 
             <div class="admin-brand">
                 <div class="brand-logo">
-                    <img src="{{ asset('assets/images/Logo-Jawa+Tengah.png') }}" alt="Logo Jawa Tengah">
+                    <img src="{{ asset('images/logo-jateng.png') }}" alt="Logo Jawa Tengah">
                 </div>
                 <div>
                     <p class="brand-title">SISTEM INFORMASI PEMESANAN GEDUNG</p>
