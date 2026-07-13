@@ -1,55 +1,23 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Info Sewa - BPSDMD Provinsi Jawa Tengah</title>
+@extends('layouts.app')
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-<link rel="stylesheet" href="/css/home.css">
+@section('title', 'Info Sewa - BPSDMD Provinsi Jawa Tengah')
 
-<!-- FullCalendar section jadwal -->
+@push('styles')
+<link rel="stylesheet" href="{{ asset('css/home.css') }}">
 <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/core@6.1.10/locales/id.global.min.js"></script>
+@endpush
 
-</head>
-<body>
+@section('nav-cta')
+<a href="#jadwal" class="btn-lihat-jadwal">Lihat Jadwal</a>
+@endsection
 
-<!-- ================= NAVBAR ================= -->
-<nav class="navbar-custom">
-  <div class="container d-flex align-items-center justify-content-between">
-
-    <div class="d-flex align-items-center gap-2">
-      <div class="brand-logo">
-        <!-- placeholder logo -->
-        <img src="/images/logo-jateng.png" alt="Logo BPSDMD Jawa Tengah">
-      </div>
-      <div>
-        <div class="brand-text-main">INFO SEWA</div>
-        <div class="brand-text-sub">BPSDMD Provinsi Jawa Tengah</div>
-      </div>
-    </div>
-
-    <div class="nav-links d-none d-lg-flex">
-      <a href="/" class="active">Home</a>
-      <a href="/pesan">Pesan</a>
-      <a href="#">Informasi</a>
-    </div>
-
-    <a href="#jadwal" class="btn-lihat-jadwal">Lihat Jadwal</a>
-  </div>
-</nav>
-
-<!-- ================= HERO ================= -->
+@section('content')
 <section class="hero">
   <h1>Ruang yang Tepat,<br>Untuk Momen yang Berkesan</h1>
   <p>Jelajahi fasilitas, lihat ketersediaan jadwal, dan lakukan pemesanan gedung dengan pengalaman yang sederhana, cepat, dan nyaman.</p>
 </section>
 
-<!-- ================= SHOWCASE CAROUSEL ================= -->
 <section class="showcase-wrap">
   <div id="showcaseCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
 
@@ -65,32 +33,32 @@
     <div class="carousel-inner">
       <div class="carousel-item active">
         <div class="carousel-slide s1">
-          <img src="/images/gambar1.jpg" alt="Gambar Gedung 1">
+          <img src="{{ asset('images/gambar1.jpg') }}" alt="Gambar Gedung 1">
         </div>
       </div>
       <div class="carousel-item">
         <div class="carousel-slide s2">
-          <img src="/images/gambar2.jpg" alt="Gambar Gedung 2">
+          <img src="{{ asset('images/gambar2.jpg') }}" alt="Gambar Gedung 2">
         </div>
       </div>
       <div class="carousel-item">
         <div class="carousel-slide s3">
-          <img src="/images/gambar3.jpg" alt="Gambar Gedung 3">
+          <img src="{{ asset('images/gambar3.jpg') }}" alt="Gambar Gedung 3">
         </div>
       </div>
       <div class="carousel-item">
         <div class="carousel-slide s4">
-          <img src="/images/gambar4.jpg" alt="Gambar Gedung 4">
+          <img src="{{ asset('images/gambar4.jpg') }}" alt="Gambar Gedung 4">
         </div>
       </div>
       <div class="carousel-item">
         <div class="carousel-slide s5">
-          <img src="/images/gambar5.jpg" alt="Gambar Gedung 5">
+          <img src="{{ asset('images/gambar5.jpg') }}" alt="Gambar Gedung 5">
         </div>
       </div>
       <div class="carousel-item">
         <div class="carousel-slide s6">
-          <img src="/images/gambar6.jpg" alt="Gambar Gedung 6">
+          <img src="{{ asset('images/gambar6.jpg') }}" alt="Gambar Gedung 6">
         </div>
       </div>
     </div>
@@ -107,7 +75,6 @@
   </div>
 </section>
 
-<!-- ================= JADWAL PEMESANAN ================= -->
 <section class="jadwal-section" id="jadwal">
   <h2>Jadwal Pemesanan Tempat</h2>
 
@@ -134,40 +101,11 @@
   </div>
 </section>
 
-<!-- ================= CTA BANNER ================= -->
 <div class="cta-banner-wrap">
-  <a href="/pesan" class="cta-banner">Pesan Gedung</a>
+  <a href="{{ url('/pesan') }}" class="cta-banner">Pesan Gedung</a>
 </div>
+@endsection
 
-<!-- ================= FOOTER ================= -->
-<footer class="site-footer">
-  <div class="container">
-    <div class="row gy-4">
-      <div class="col-md-4">
-        <h6>BPSDMD<br>PROVINSI JAWA TENGAH</h6>
-        <p>Jl. Setiabudi No. 201 A, Semarang 50263</p>
-        <p>Telepon: 024-7472046</p>
-        <p>Faximile: 7472930</p>
-        <p>Email: bpsdmd@jatengprov.go.id</p>
-      </div>
-      <div class="col-md-4 text-md-center">
-        <h6>Link Terkait</h6>
-        <p><a href="#">Website BPSDMD</a></p>
-        <p><a href="#">PPID BPSDMD</a></p>
-      </div>
-      <div class="col-md-4 text-md-end">
-        <h6>Follow Us</h6>
-        <div class="footer-social">
-          <a href="#"><i class="bi bi-instagram"></i></a>
-          <a href="#"><i class="bi bi-facebook"></i></a>
-          <a href="#"><i class="bi bi-twitter-x"></i></a>
-        </div>
-      </div>
-    </div>
-  </div>
-</footer>
-
-<script src="/js/home.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+@push('scripts')
+<script src="{{ asset('js/home.js') }}"></script>
+@endpush
