@@ -17,10 +17,10 @@ Route::get('/informasi', function () {
     return view('informasi');
 })->name('informasi');
 
-<<<<<<< HEAD
+
 Route::get('/admin/login', function () {
-    return view('auth.login'); 
-=======
+        return view('auth.login'); 
+});
 Route::get('/api/jadwal', function () {
     $events = DB::table('pemesan')
         ->select('tanggal_pakai', 'keperluan')
@@ -32,5 +32,5 @@ Route::get('/api/jadwal', function () {
         ]);
 
     return response()->json($events);
->>>>>>> 0675b9703696603ef1de5d3678bbd95d6d9e7f02
+
 });
