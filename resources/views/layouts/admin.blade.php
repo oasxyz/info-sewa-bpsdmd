@@ -14,6 +14,7 @@
     <link href="{{ asset('assets/fancybox/source/jquery.fancybox.css') }}" rel="stylesheet">
 
     <link href="{{ asset('css/admin-layout.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/admin-laporan.css') }}" rel="stylesheet">
     @stack('styles')
 </head>
 <body>
@@ -63,9 +64,9 @@
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle">Laporan <i class="bi bi-chevron-down dropdown-icon"></i></a>
                 <ul class="dropdown-menu">
-                    <li><a href="#">Laporan Bayar Dimuka</a></li>
-                    <li><a href="#">Laporan Penerimaan</a></li>
-                    <li><a href="#">Laporan Pemakai Gedung</a></li>
+                    <li><a href="{{ route('admin.laporan.bayar_dimuka') }}">Laporan Bayar Dimuka</a></li>
+                    <li><a href="{{ route('admin.laporan.penerimaan') }}">Laporan Penerimaan</a></li>
+                    <li><a href="{{ route('admin.laporan.pemakai_gedung') }}">Laporan Pemakai Gedung</a></li>
                 </ul>
             </li>
             <li class="dropdown">
