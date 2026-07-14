@@ -1,0 +1,233 @@
+.alert-success-box {
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+  border-radius: 6px;
+  padding: 12px 18px;
+  margin-bottom: 20px;
+  font-size: .9rem;
+}
+
+.pengaturan-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1.7fr;
+  gap: 24px;
+}
+
+.span-full {
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 1100px) {
+  .pengaturan-grid { grid-template-columns: 1fr; }
+}
+
+/* ===== CARD (samain kayak rekap-card di dashboard) ===== */
+.settings-card {
+  background: #fff;
+  border: 1px solid #e6e6e6;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 20px 55px rgba(0,0,0,.18), 0 6px 18px rgba(0,0,0,.10);
+  margin-bottom: 24px;
+}
+
+.settings-card-header {
+  background: #212529;
+  color: #fed136;
+  text-align: center;
+  padding: 14px 0;
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: .3px;
+}
+
+.settings-card-body {
+  padding: 22px;
+}
+
+.settings-note {
+  font-size: .8rem;
+  color: #777;
+  margin-bottom: 14px;
+}
+
+/* ===== TABLE-LIKE ROWS ===== */
+.settings-table {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.settings-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.settings-row-head {
+  font-weight: 700;
+  font-size: .78rem;
+  color: #555;
+  text-transform: uppercase;
+  letter-spacing: .3px;
+  padding: 0 2px 4px;
+}
+
+.row-form,
+.pejabat-form,
+.tarif-form {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+}
+
+.row-form input,
+.pejabat-form input,
+.tarif-form input {
+  flex: 1;
+  min-width: 0;
+}
+
+.row-form-delete {
+  flex-shrink: 0;
+}
+
+.form-control {
+  border: 1px solid #d8d8d8;
+  border-radius: 5px;
+  padding: 8px 10px;
+  font-size: .86rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #fed136;
+  box-shadow: 0 0 0 .15rem rgba(254,209,54,.25);
+}
+
+/* ===== BUTTONS ===== */
+.btn-icon {
+  border: none;
+  border-radius: 5px;
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: .95rem;
+}
+
+.btn-check {
+  background: #28a745;
+  color: #fff;
+}
+
+.btn-check:hover { background: #218838; }
+
+.btn-delete {
+  background: #dc3545;
+  color: #fff;
+}
+
+.btn-delete:hover { background: #c82333; }
+
+.btn-tambah,
+.btn-simpan {
+  background: #212529;
+  color: #fed136;
+  border: none;
+  border-radius: 5px;
+  padding: 9px 20px;
+  font-weight: 600;
+  font-size: .85rem;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.btn-tambah:hover,
+.btn-simpan:hover {
+  background: #000;
+}
+
+/* ===== KONTAK TABLE (5 kolom: no, nama, telepon, alamat, email) ===== */
+.kontak-table .settings-row-head {
+  display: grid;
+  grid-template-columns: 30px 1fr 1fr 1fr 1fr;
+  gap: 8px;
+}
+
+.kontak-form {
+  display: grid;
+  grid-template-columns: 30px 1fr 1fr 1fr 1fr auto;
+  gap: 8px;
+  align-items: center;
+}
+
+.col-no {
+  text-align: center;
+  font-weight: 600;
+  color: #555;
+}
+
+.kontak-add-form {
+  display: flex;
+  gap: 8px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+}
+
+.kontak-add-form .form-control {
+  flex: 1;
+  min-width: 120px;
+}
+
+/* ===== TARIF TABLE (4 kolom: gedung, siang, malam, 1 hari) ===== */
+.tarif-table .settings-row-head {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: 8px;
+}
+
+.tarif-form {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr auto;
+  gap: 8px;
+  align-items: center;
+}
+
+.col-gedung {
+  font-weight: 600;
+  color: #17150f;
+}
+
+/* ===== FASILITAS WYSIWYG ===== */
+.fasilitas-editor {
+  width: 100%;
+  min-height: 220px;
+  border: 1px solid #d8d8d8;
+  border-radius: 6px;
+  padding: 14px;
+  font-size: .9rem;
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 14px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 700px) {
+  .kontak-form,
+  .kontak-table .settings-row-head,
+  .tarif-form,
+  .tarif-table .settings-row-head {
+    grid-template-columns: 1fr;
+  }
+
+  .row-form,
+  .pejabat-form {
+    flex-wrap: wrap;
+  }
+}

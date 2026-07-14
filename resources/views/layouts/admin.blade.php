@@ -75,8 +75,8 @@
                     <li><a href="#">Rekapitulasi</a></li>
                 </ul>
             </li>
-            <li>
-                <a href="#">Pengaturan</a>
+            <li class="{{ request()->is('admin/pengaturan') ? 'active' : '' }}">
+                <a href="{{ url('/admin/pengaturan') }}">Pengaturan</a>
             </li>
         </ul>
     </nav>
