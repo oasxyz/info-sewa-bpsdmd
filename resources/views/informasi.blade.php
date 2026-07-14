@@ -24,54 +24,43 @@
           Peraturan Daerah Provinsi Jawa Tengah No 12 Tahun 2023 tentang Pajak Daerah dan Retribusi Daerah
         </div>
 
-        <div class="gedung-block">
-          <h4>Sasana Widya Praja (SWP)</h4>
-          <table class="harga-table">
-            <thead>
-              <tr><th>Satuan Pemakaian</th><th>Besarnya Retribusi</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>Siang</td><td>Rp 12.500.000</td></tr>
-              <tr><td>Malam</td><td>Rp 15.000.000</td></tr>
-              <tr><td>1 hari</td><td>Rp 20.000.000</td></tr>
-            </tbody>
-          </table>
-          <div class="fasilitas-title">Fasilitas Gedung:</div>
-          <ul class="fasilitas-list">
-            <li>Kapasitas 800 orang</li>
-            <li>Kursi lipat 100 buah</li>
-            <li>Listrik 30.000 watt</li>
-            <li>Full AC (portable 8 buah)</li>
-            <li>Ruang transit VIP</li>
-            <li>Dapur bersih</li>
-            <li>Toilet</li>
-            <li>Lahan parkir yang luas (tanpa petugas parkir)</li>
-          </ul>
-        </div>
-
-        <div class="gedung-block">
-          <h4>Aula Muria</h4>
-          <table class="harga-table">
-            <thead>
-              <tr><th>Satuan Pemakaian</th><th>Besarnya Retribusi</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>Siang</td><td>Rp 7.500.000</td></tr>
-              <tr><td>Malam</td><td>Rp 10.000.000</td></tr>
-              <tr><td>1 hari</td><td>Rp 12.500.000</td></tr>
-            </tbody>
-          </table>
-          <div class="fasilitas-title">Fasilitas Gedung:</div>
-          <ul class="fasilitas-list">
-            <li>Kapasitas 350 orang</li>
-            <li>Kursi lipat 100 buah</li>
-            <li>Listrik 15.000 watt</li>
-            <li>Full AC (portable 6 buah)</li>
-            <li>Ruang transit</li>
-            <li>Toilet</li>
-            <li>Lahan parkir yang luas</li>
-          </ul>
-        </div>
+        @foreach($gedungs as $g)
+          <div class="gedung-block">
+            <h4>{{ $g->gedung }}</h4>
+            <table class="harga-table">
+              <thead>
+                <tr><th>Satuan Pemakaian</th><th>Besarnya Retribusi</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Siang</td><td>Rp {{ number_format($g->hargasiang, 0, ',', '.') }}</td></tr>
+                <tr><td>Malam</td><td>Rp {{ number_format($g->hargamalam, 0, ',', '.') }}</td></tr>
+                <tr><td>1 hari</td><td>Rp {{ number_format($g->hargahari, 0, ',', '.') }}</td></tr>
+              </tbody>
+            </table>
+            <div class="fasilitas-title">Fasilitas Gedung:</div>
+            <ul class="fasilitas-list">
+              {{-- Catatan: tabel fasilitas di DB masih global (belum per-gedung), jadi ini tetep hardcode per kode --}}
+              @if($g->kode == '1')
+                <li>Kapasitas 800 orang</li>
+                <li>Kursi lipat 100 buah</li>
+                <li>Listrik 30.000 watt</li>
+                <li>Full AC (portable 8 buah)</li>
+                <li>Ruang transit VIP</li>
+                <li>Dapur bersih</li>
+                <li>Toilet</li>
+                <li>Lahan parkir yang luas (tanpa petugas parkir)</li>
+              @elseif($g->kode == '2')
+                <li>Kapasitas 350 orang</li>
+                <li>Kursi lipat 100 buah</li>
+                <li>Listrik 15.000 watt</li>
+                <li>Full AC (portable 6 buah)</li>
+                <li>Ruang transit</li>
+                <li>Toilet</li>
+                <li>Lahan parkir yang luas</li>
+              @endif
+            </ul>
+          </div>
+        @endforeach
 
         <div class="gedung-block">
           <h4>Gedung / Asrama Lainnya</h4>
@@ -101,8 +90,14 @@
 
         <p>Untuk pemesanan dan informasi selanjutnya silakan hubungi:</p>
         <ul class="kontak-list">
-          <li><strong>1. RIDWAN NUGRAHAPASA, S.STP.</strong> — Telepon: 081229796797</li>
-          <li><strong>2. RISTI NELASAPUTRI, S.I.Kom.</strong> — Telepon: 081390030404</li>
+          @foreach($kontaks as $k)
+            <li>
+              <strong>{{ $loop->iteration }}. {{ $k->nama }}</strong> — Telepon: {{ $k->telepon }}
+              @if($k->email)
+                <br>Email: {{ $k->email }}
+              @endif
+            </li>
+          @endforeach
         </ul>
 
         <div class="jam-title">Jam Kerja Layanan:</div>

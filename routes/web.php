@@ -53,3 +53,10 @@ Route::put('/admin/pengaturan/gedung/{kode}', [PengaturanController::class, 'upd
  
 // Fasilitas
 Route::put('/admin/pengaturan/fasilitas/{id}', [PengaturanController::class, 'updateFasilitas']);
+
+Route::get('/informasi', function () {
+    $gedungs = DB::table('gedung')->orderBy('kode')->get();
+    $kontaks = DB::table('kontak')->orderBy('no')->get();
+
+    return view('informasi', compact('gedungs', 'kontaks'));
+})->name('informasi');
