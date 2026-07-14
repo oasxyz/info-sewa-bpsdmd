@@ -34,7 +34,7 @@
 
             <div class="dropdown admin-user-dropdown">
                 <button class="btn admin-user-btn dropdown-toggle" type="button" data-toggle="dropdown">
-                    <i class="bi bi-person-circle"></i> Admin ({{ Session::get('login_user') }}) <span class="<i class="bi bi-chevron-down dropdown-icon"></i>"></span>
+                    <i class="bi bi-person-circle"></i> Admin ({{ Session::get('login_user') }}) <i class="bi bi-chevron-down dropdown-icon"></i>
                 </button>
                 <ul class="dropdown-menu">
                     <li><a href="{{ route('admin.logout') }}">Keluar</a></li>
