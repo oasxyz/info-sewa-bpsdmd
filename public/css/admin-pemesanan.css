@@ -1,0 +1,57 @@
+.pemesanan-table th:nth-child(6),
+.pemesanan-table td:nth-child(6) { text-align: right; }
+
+.status-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: .78rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.status-proses        { background: #fff6d8; color: #8a6d00; border: 1px solid #fed136; }
+.status-terverifikasi { background: #e6f0ff; color: #1a4d8f; border: 1px solid #6aa8ff; }
+.status-dipesan       { background: #e5f6e8; color: #1e6b2e; border: 1px solid #6aa84f; }
+.status-dibatalkan    { background: #fbe7e7; color: #7a1f1f; border: 1px solid #d97b7b; }
+
+.status-sisa { margin-top: 4px; font-size: .74rem; color: #8a6d00; }
+
+.aksi-form { display: flex; flex-direction: column; gap: 6px; min-width: 130px; }
+
+.btn-aksi {
+  border: none;
+  border-radius: 5px;
+  padding: 6px 10px;
+  font-size: .78rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: #fff;
+}
+.btn-verif { background: #212529; color: #fed136; }
+.btn-verif:hover { background: #000; }
+.btn-bayar { background: #1e6b2e; }
+.btn-bayar:hover { background: #164f22; }
+.btn-batal { background: #7a1f1f; }
+.btn-batal:hover { background: #5e1717; }
+
+.aksi-selesai { color: #999; }
+
+.alert-msg { padding: 10px 16px; border-radius: 6px; margin-bottom: 16px; font-size: .9rem; }
+.alert-success { background: #e5f6e8; color: #1e6b2e; border: 1px solid #6aa84f; }
+.alert-error   { background: #fbe7e7; color: #7a1f1f; border: 1px solid #d97b7b; }
+
+.pemesanan-pagination { margin-top: 18px; display: flex; justify-content: center; }
+.pemesanan-pagination ul { display: flex; list-style: none; gap: 4px; padding: 0; margin: 0; }
+.pemesanan-pagination .page-link {
+  display: block;
+  padding: 6px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  color: #17150f;
+  text-decoration: none;
+  font-size: .85rem;
+}
+.pemesanan-pagination .page-item.disabled .page-link { color: #bbb; cursor: not-allowed; }
+.pemesanan-pagination .page-item.active .page-link {
+  background: #212529; border-color: #212529; color: #fed136;
+}
