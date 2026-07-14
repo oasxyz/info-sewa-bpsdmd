@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use App\Models\Pemesan;
 
 class AdminAuthController extends Controller
 {
@@ -52,6 +53,33 @@ class AdminAuthController extends Controller
 
     return view('auth.dashboard', compact('rekap'));
     }
+
+    public function daftarPemesan()
+{
+    if (!session()->has('login_user')) return redirect()->route('admin.login');
+
+    $pemesanan = Pemesan::orderBy('tanggal_pesan', 'desc')->paginate(20);
+    return view('auth.pemesanan', compact('pemesanan'));
+}
+
+public function ubahStatus($id)
+{
+    if (!session()->has('login_user')) return redirect()->route('admin.login');
+
+    $pemesan = Pemesan::findOrFail($id);
+    $request = request();
+
+    if ($request->status == 'terverifikasi' && $pemesan->status == 'proses') {
+        $pemesan->update(['status' => 'terverifikasi']);
+    } elseif ($request->status == 'dipesan' && $pemesan->status == 'terverifikasi') {
+        $pemesan->update(['status' => 'dipesan']);
+    } elseif ($request->status == 'dibatalkan') {
+        $pemesan->update(['status' => 'dibatalkan']);
+    }
+
+    return back()->with('success', 'Status berhasil diupdate');
+}
+
     public function logout() {
         session()->forget('login_user');
         return redirect()->route('admin.login');

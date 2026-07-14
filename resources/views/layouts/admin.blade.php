@@ -50,13 +50,9 @@
             <li class="{{ request()->is('admin/dashboard') || request()->is('admin') ? 'active' : '' }}">
                 <a href="{{ url('/admin/dashboard') }}">Dashboard</a>
             </li>
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle">Data Pemesanan <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                    <li><a href="#">Pemesan Online</a></li>
-                    <li><a href="#">Data Pemesan</a></li>
-                </ul>
-            </li>
+            <li class="{{ request()->is('admin/pemesanan') ? 'active' : '' }}">
+         <a href="{{ url('/admin/pemesanan') }}">Data Pemesanan</a>
+        </li>
             <li>
                 <a href="#">Tambah Pemesan</a>
             </li>

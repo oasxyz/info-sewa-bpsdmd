@@ -13,6 +13,6 @@ class Pemesan extends Model
     protected $fillable = [
         'no', 'pemesan', 'pemakai', 'email', 'alamat', 'telp', 'hp',
         'keperluan', 'tanggal_pakai', 'waktu', 'gedung', 'fasilitas',
-        'instansi', 'temp', 'tanggal_pesan'
+        'instansi', 'temp', 'tanggal_pesan','status'
     ];
 }

@@ -37,7 +37,7 @@ public function store(Request $request)
         ->get();
 
     foreach ($cek as $c) {
-        if ($c->waktu === 'SEHARI') {
+        if ($c->waktu === '1HARI') {
             return back()->withErrors(['tanggal_pemakaian' => 'Tanggal ini sudah dipesan FULL DAY untuk gedung ' . $request->gedung])->withInput();
         }
         if ($request->waktu_pakai === 'siang' && $c->waktu === 'SIANG') {
@@ -66,7 +66,8 @@ public function store(Request $request)
     'gedung' => $request->gedung,
     'fasilitas' => '',       
     'instansi' => '',        
-    'temp' => 0,            
+    'temp' => 0,  
+    'status' => 'proses',           
     'tanggal_pesan' => now(),
     ]);
 
