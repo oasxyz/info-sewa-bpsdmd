@@ -50,32 +50,33 @@
             <li class="{{ request()->is('admin/dashboard') || request()->is('admin') ? 'active' : '' }}">
                 <a href="{{ url('/admin/dashboard') }}">Dashboard</a>
             </li>
-            <li class="dropdown {{ request()->is('admin/pemesanan*') ? 'active' : '' }}">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Data Pemesanan <span class="caret"></span></a>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle">Data Pemesanan <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                    <li><a href="{{ url('/admin/pemesanan') }}">Semua Pemesanan</a></li>
-                    <li><a href="{{ url('/admin/pemesanan/verifikasi') }}">Verifikasi</a></li>
+                    <li><a href="#">Pemesan Online</a></li>
+                    <li><a href="#">Data Pemesan</a></li>
                 </ul>
             </li>
-            <li class="{{ request()->is('admin/pemesan/create') ? 'active' : '' }}">
-                <a href="{{ url('/admin/pemesan/create') }}">Tambah Pemesan</a>
+            <li>
+                <a href="#">Tambah Pemesan</a>
             </li>
-            <li class="dropdown {{ request()->is('admin/laporan*') ? 'active' : '' }}">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Laporan <span class="caret"></span></a>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle">Laporan <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                    <li><a href="{{ url('/admin/laporan/bulanan') }}">Laporan Bulanan</a></li>
-                    <li><a href="{{ url('/admin/laporan/tahunan') }}">Laporan Tahunan</a></li>
+                    <li><a href="#">Laporan Bayar Dimuka</a></li>
+                    <li><a href="#">Laporan Penerimaan</a></li>
+                    <li><a href="#">Laporan Pemakai Gedung</a></li>
                 </ul>
             </li>
-            <li class="dropdown {{ request()->is('admin/grafik*') ? 'active' : '' }}">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Grafik <span class="caret"></span></a>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle">Grafik <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                    <li><a href="{{ url('/admin/grafik/pemesanan') }}">Grafik Pemesanan</a></li>
-                    <li><a href="{{ url('/admin/grafik/pendapatan') }}">Grafik Pendapatan</a></li>
+                    <li><a href="#">Jumlah Pemakai Pertahun</a></li>
+                    <li><a href="#">Rekapitulasi</a></li>
                 </ul>
             </li>
-            <li class="{{ request()->is('admin/pengaturan*') ? 'active' : '' }}">
-                <a href="{{ url('/admin/pengaturan') }}">Pengaturan</a>
+            <li>
+                <a href="#">Pengaturan</a>
             </li>
         </ul>
     </nav>
