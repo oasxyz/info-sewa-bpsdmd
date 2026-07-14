@@ -34,7 +34,7 @@
 
             <div class="dropdown admin-user-dropdown">
                 <button class="btn admin-user-btn dropdown-toggle" type="button" data-toggle="dropdown">
-                    <i class="bi bi-person-circle"></i> Admin ({{ Session::get('login_user') }}) <span class="caret"></span>
+                    <i class="bi bi-person-circle"></i> Admin ({{ Session::get('login_user') }}) <span class="<i class="bi bi-chevron-down dropdown-icon"></i>"></span>
                 </button>
                 <ul class="dropdown-menu">
                     <li><a href="{{ route('admin.logout') }}">Keluar</a></li>
@@ -51,7 +51,7 @@
                 <a href="{{ url('/admin/dashboard') }}">Dashboard</a>
             </li>
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle">Data Pemesanan <span class="caret"></span></a>
+                <a href="#" class="dropdown-toggle">Data Pemesanan <i class="bi bi-chevron-down dropdown-icon"></i></a>
                 <ul class="dropdown-menu">
                     <li><a href="#">Pemesan Online</a></li>
                     <li><a href="#">Data Pemesan</a></li>
@@ -61,7 +61,7 @@
                 <a href="#">Tambah Pemesan</a>
             </li>
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle">Laporan <span class="caret"></span></a>
+                <a href="#" class="dropdown-toggle">Laporan <i class="bi bi-chevron-down dropdown-icon"></i></a>
                 <ul class="dropdown-menu">
                     <li><a href="#">Laporan Bayar Dimuka</a></li>
                     <li><a href="#">Laporan Penerimaan</a></li>
@@ -69,7 +69,7 @@
                 </ul>
             </li>
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle">Grafik <span class="caret"></span></a>
+                <a href="#" class="dropdown-toggle">Grafik <i class="bi bi-chevron-down dropdown-icon"></i></a>
                 <ul class="dropdown-menu">
                     <li><a href="#">Jumlah Pemakai Pertahun</a></li>
                     <li><a href="#">Rekapitulasi</a></li>
