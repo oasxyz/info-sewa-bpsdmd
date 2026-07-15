@@ -31,6 +31,39 @@ public function store(Request $request)
         'gedung' => 'required',
     ]);
 
+// CEK ATURAN GEDUNG BALAI SASANA WIDYA PRAJA
+if ($request->gedung === 'Balai Sasana Widya Praja') {
+    $tanggal = $request->tanggal_pemakaian;
+    $hariInggris = date('l', strtotime($tanggal));
+
+    $tahun = date('Y', strtotime($tanggal));
+    $responseLibur = @file_get_contents("https://api-hari-libur.vercel.app/api?year=$tahun");
+    $dataLibur = $responseLibur ? json_decode($responseLibur, true)['data'] : [];
+    $isLibur = false;
+    foreach ($dataLibur as $libur) {
+        if ($libur['date'] === $tanggal) {
+            $isLibur = true;
+            break;
+        }
+    }
+
+    $isJumat = $hariInggris === 'Friday';
+    $isSabtu = $hariInggris === 'Saturday';
+    $isMinggu = $hariInggris === 'Sunday';
+
+    if (!$isJumat && !$isSabtu && !$isMinggu && !$isLibur) {
+        return back()->withErrors([
+            'tanggal_pemakaian' => 'Gedung Sasana Widya Praja hanya dapat disewa pada hari Jumat Malam, Sabtu, Minggu, dan hari libur nasional.'
+        ])->withInput();
+    }
+
+    if ($isJumat && !$isLibur && $request->waktu_pakai !== 'malam') {
+        return back()->withErrors([
+            'waktu_pakai' => 'Untuk hari Jumat, Gedung Sasana Widya Praja hanya tersedia sesi malam.'
+        ])->withInput();
+    }
+}
+
     // Cek duplikat slot
     $cek = Pemesan::where('tanggal_pakai', $request->tanggal_pemakaian)
         ->where('gedung', $request->gedung)
