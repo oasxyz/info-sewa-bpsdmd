@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GrafikController;
 use App\Http\Controllers\PemesananController;
 use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\PengaturanController;
@@ -62,3 +63,6 @@ Route::get('/informasi', function () {
 
     return view('informasi', compact('gedungs', 'kontaks'));
 })->name('informasi');
+
+Route::get('/admin/grafik/jumlah-pemakai', [GrafikController::class, 'jumlahPemakai'])->name('admin.grafik.pemakai');
+Route::get('/admin/grafik/rekapitulasi', [GrafikController::class, 'rekapitulasi'])->name('admin.grafik.rekap');
