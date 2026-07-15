@@ -119,3 +119,21 @@
 .chart-card-body {
   padding: 24px;
 }
+
+.chart-card-body canvas {
+  width: 100% !important;
+  height: 350px !important;
+}
+
+.chart-wrapper {
+  margin: 0 auto;
+  width: 100%;
+}
+
+.chart-wrapper--bar {
+  max-width: 75%;
+}
+
+.chart-wrapper--pie {
+  max-width: 45%;
+}

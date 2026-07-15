@@ -18,14 +18,18 @@
 <div class="chart-card">
   <div class="chart-card-header">Grafik Rekapitulasi Jumlah Pemakai</div>
   <div class="chart-card-body">
-    <canvas id="barChart"></canvas>
+    <div class="chart-wrapper chart-wrapper--bar">
+        <canvas id="barChart"></canvas>
+    </div>
   </div>
 </div>
 
 <div class="chart-card">
   <div class="chart-card-header">Grafik Total Pemakai</div>
   <div class="chart-card-body">
-    <canvas id="pieChart"></canvas>
+    <div class="chart-wrapper chart-wrapper--pie">
+        <canvas id="pieChart"></canvas>
+    </div>
   </div>
 </div>
 
@@ -45,6 +49,7 @@ document.addEventListener('DOMContentLoaded', function () {
         },
         options: {
             responsive: true,
+            maintainAspectRatio: false,
             scales: {
                 y: {
                     beginAtZero: true,
@@ -65,6 +70,7 @@ document.addEventListener('DOMContentLoaded', function () {
         },
         options: {
             responsive: true,
+            maintainAspectRatio: false,
         },
     });
 });
