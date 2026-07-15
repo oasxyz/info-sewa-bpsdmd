@@ -55,3 +55,53 @@
 .pemesanan-pagination .page-item.active .page-link {
   background: #212529; border-color: #212529; color: #fed136;
 }
+
+
+.filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.filter-bar .form-control {
+  padding: 8px 12px;
+  border: 1px solid #d8d8d8;
+  border-radius: 5px;
+  font-size: .86rem;
+  font-family: 'Poppins', sans-serif;
+  min-width: 140px;
+}
+
+.filter-bar .form-control:focus {
+  outline: none;
+  border-color: #fed136;
+  box-shadow: 0 0 0 .15rem rgba(254,209,54,.25);
+}
+
+.btn-filter {
+  background: #212529;
+  color: #fed136;
+  border: none;
+  border-radius: 5px;
+  padding: 9px 20px;
+  font-weight: 600;
+  font-size: .85rem;
+  cursor: pointer;
+}
+
+.btn-filter:hover {
+  background: #000;
+}
+
+.btn-reset-filter {
+  color: #555;
+  font-size: .85rem;
+  text-decoration: underline;
+  padding: 9px 4px;
+}
+
+.btn-reset-filter:hover {
+  color: #212529;
+}

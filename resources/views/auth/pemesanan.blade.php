@@ -10,7 +10,7 @@
 @section('content')
 
 <div class="rekap-card">
-  <div class="rekap-card-header">Data Pemesanan</div>
+  <div class="rekap-card-header">Jadwal Pemesanan Tempat (Bulan {{ $judulBulan }} {{ $tahunAktif }})</div>
   <div class="rekap-card-body">
 
     @if(session('success'))
@@ -19,6 +19,8 @@
     @if(session('error'))
       <div class="alert-msg alert-error">{{ session('error') }}</div>
     @endif
+
+    @include('auth.partials.filter-bulan-tahun')
 
     <div class="table-responsive">
       <table class="rekap-table pemesanan-table">
@@ -78,7 +80,7 @@
           </tr>
           @empty
           <tr>
-            <td colspan="8" class="text-center">Belum ada data pemesanan.</td>
+            <td colspan="8" class="text-center">Belum ada pemesanan buat bulan {{ $judulBulan }} {{ $tahunAktif }}.</td>
           </tr>
           @endforelse
         </tbody>

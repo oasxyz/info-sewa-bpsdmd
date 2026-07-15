@@ -54,13 +54,35 @@ class AdminAuthController extends Controller
     return view('auth.dashboard', compact('rekap'));
     }
 
-    public function daftarPemesan()
-{
-    if (!session()->has('login_user')) return redirect()->route('admin.login');
+    public function daftarPemesan(Request $request)
+    {
+        if (!session()->has('login_user')) return redirect()->route('admin.login');
 
-    $pemesanan = Pemesan::orderBy('tanggal_pesan', 'desc')->paginate(20);
-    return view('auth.pemesanan', compact('pemesanan'));
-}
+        $bulan = $request->query('bulan');
+        $tahun = $request->query('tahun');
+
+        // Default ke bulan & tahun sekarang kalau belum ada filter yang dipilih
+        $bulanAktif = $bulan ?: now()->month;
+        $tahunAktif = $tahun ?: now()->year;
+
+        $pemesanan = Pemesan::whereMonth('tanggal_pakai', $bulanAktif)
+            ->whereYear('tanggal_pakai', $tahunAktif)
+            ->orderBy('tanggal_pesan', 'desc')
+            ->paginate(20)
+            ->withQueryString();
+
+        $namaBulan = [
+            1 => 'Januari', 2 => 'Februari', 3 => 'Maret', 4 => 'April',
+            5 => 'Mei', 6 => 'Juni', 7 => 'Juli', 8 => 'Agustus',
+            9 => 'September', 10 => 'Oktober', 11 => 'November', 12 => 'Desember',
+        ];
+        $judulBulan = $namaBulan[$bulanAktif];
+
+        $tahunMin = Pemesan::selectRaw('MIN(YEAR(tanggal_pakai)) as tahun')->value('tahun') ?? now()->year;
+        $tahunOptions = range($tahunMin, now()->year + 1);
+
+        return view('auth.pemesanan', compact('pemesanan', 'judulBulan', 'tahunAktif', 'tahunOptions'));
+    }
 
 public function ubahStatus($id)
 {
