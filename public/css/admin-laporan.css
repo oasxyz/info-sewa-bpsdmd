@@ -1,0 +1,106 @@
+.laporan-card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.08);
+    overflow: hidden;
+}
+.laporan-card-header {
+    background: #212529;
+    color: #fed136;
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 14px 20px;
+    letter-spacing: .5px;
+}
+.laporan-card-body {
+    padding: 20px;
+}
+
+/* Filter */
+.laporan-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: flex-end;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #eee;
+}
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.filter-group label {
+    font-size: .8rem;
+    font-weight: 600;
+    color: #555;
+}
+.filter-group select {
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: .9rem;
+    min-width: 100px;
+    cursor: pointer;
+}
+.btn-reset {
+    padding: 6px 14px;
+    background: #6c757d;
+    color: #fff;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: .85rem;
+}
+.btn-reset:hover {
+    background: #5a6268;
+    color: #fff;
+}
+
+/* Table */
+.laporan-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: .88rem;
+}
+.laporan-table th {
+    background: #f8f9fa;
+    color: #333;
+    font-weight: 600;
+    padding: 10px 12px;
+    text-align: left;
+    border-bottom: 2px solid #dee2e6;
+    white-space: nowrap;
+}
+.laporan-table td {
+    padding: 9px 12px;
+    border-bottom: 1px solid #eee;
+    vertical-align: top;
+}
+.laporan-table tbody tr:hover {
+    background: #f5f5f5;
+}
+.laporan-table tfoot th {
+    padding: 10px 12px;
+    border-top: 2px solid #dee2e6;
+    font-weight: 700;
+}
+.col-uang {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+}
+
+/* Aksi button */
+.btn-aksi {
+    padding: 4px 12px;
+    background: #212529;
+    color: #fed136;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: .8rem;
+    font-weight: 600;
+}
+.btn-aksi:hover {
+    background: #343a40;
+}

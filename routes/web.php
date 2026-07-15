@@ -6,6 +6,8 @@ use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\PengaturanController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\LaporanController;
+
 
 // User Routes
 Route::get('/', fn() => view('home-infosewa'))->name('home');
@@ -20,6 +22,10 @@ Route::get('/admin/dashboard', [AdminAuthController::class, 'dashboard'])->name(
 Route::get('/admin/pemesanan', [AdminAuthController::class, 'daftarPemesan'])->name('admin.pemesanan');
 Route::get('/admin/logout', [AdminAuthController::class, 'logout'])->name('admin.logout'); 
 Route::post('/admin/pemesanan/{id}/status', [AdminAuthController::class, 'ubahStatus'])->name('admin.pemesanan.status');
+
+Route::get('/admin/laporan/bayar-dimuka', [LaporanController::class, 'bayarDimuka'])->name('admin.laporan.bayar_dimuka');
+Route::get('/admin/laporan/penerimaan', [LaporanController::class, 'penerimaan'])->name('admin.laporan.penerimaan');
+Route::get('/admin/laporan/pemakai-gedung', [LaporanController::class, 'pemakaiGedung'])->name('admin.laporan.pemakai_gedung');
 
 // API Jadwal
 Route::get('/api/jadwal', function () {
