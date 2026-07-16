@@ -22,7 +22,7 @@ class GrafikController extends Controller
         $maxYear = now()->year + 1;
         $tahunOptions = range($minYear, $maxYear);
  
-        $tahunDipilih = $request->query('tahun');
+        $tahunDipilih = $request->query('tahun', now()->year);
  
         $data = collect();
         if ($tahunDipilih) {
