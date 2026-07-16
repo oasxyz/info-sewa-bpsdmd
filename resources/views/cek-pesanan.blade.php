@@ -2,75 +2,19 @@
 
 @section('title', 'Cek Pemesanan - Info Sewa BPSDMD Provinsi Jawa Tengah')
 
+@section('nav-cta')
+<a href="{{ url('/pesan') }}" class="btn-pesan">Pesan Gedung</a>
+@endsection
+
 @push('styles')
+<link rel="stylesheet" href="{{ asset('css/pesan.css') }}">
 <style>
-.page-wrap {
-  max-width: 900px;
-  margin: 40px auto 90px;
-  padding: 0 40px;
-}
-.card {
-  background: #fff;
-  border: 1px solid #e6e6e6;
-  border-radius: 8px;
-  box-shadow: 0 10px 40px rgba(0,0,0,.18);
-  overflow: hidden;
-  margin-bottom: 36px;
-}
-.card-header {
-  background: #f5f5f5;
-  text-align: center;
-  padding: 22px 0;
-  font-weight: 700;
-  font-size: 1.3rem;
-  color: #1b2a4b;
-  border-bottom: 1px solid #e2e2e2;
-}
-.card-body {
-  padding: 32px;
-}
-.form-control {
-  border: 1px solid #d8d8d8;
-  border-radius: 5px;
-  padding: 10px 14px;
-  font-size: .92rem;
-}
-.form-control:focus {
-  border-color: #17150f;
-  box-shadow: 0 0 0 .15rem rgba(23,21,15,.08);
-}
-.btn-cek {
-  background: #212529;
-  color: #fed136;
-  border: none;
-  padding: 12px 40px;
-  font-weight: 700;
-  border-radius: 5px;
-  cursor: pointer;
-}
-.btn-cek:hover { background: #000; }
-
-.status-badge {
-  display: inline-block;
-  padding: 4px 10px;
-  border-radius: 999px;
-  font-size: .78rem;
-  font-weight: 700;
-}
-.status-proses        { background: #fff6d8; color: #8a6d00; border: 1px solid #fed136; }
-.status-terverifikasi { background: #e6f0ff; color: #1a4d8f; border: 1px solid #6aa8ff; }
-.status-dipesan       { background: #e5f6e8; color: #1e6b2e; border: 1px solid #6aa84f; }
-.status-dibatalkan    { background: #fbe7e7; color: #7a1f1f; border: 1px solid #d97b7b; }
-
-.table { font-size: .9rem; }
-.table th { background: #f5f5f5; }
-
+.hasil-card { margin-top: 24px; }
 .info-bayar {
   background: #e6f0ff;
   border: 1px solid #6aa8ff;
   border-radius: 8px;
   padding: 20px;
-  margin-top: 12px;
 }
 .info-bayar h6 { color: #1a4d8f; font-weight: 700; margin-bottom: 12px; }
 .info-bayar p { margin-bottom: 4px; font-size: .9rem; }
@@ -80,9 +24,9 @@
 @section('content')
 <div class="page-wrap">
 
-  <div class="card">
-    <div class="card-header">Cek Status Pemesanan</div>
-    <div class="card-body">
+  <div class="form-card">
+    <div class="form-card-header">Cek Status Pemesanan</div>
+    <div class="form-card-body">
       <form method="POST">
         @csrf
         <div class="row g-3 align-items-end">
@@ -92,7 +36,7 @@
             @error('no_ktp') <div class="text-danger small mt-1">{{ $message }}</div> @enderror
           </div>
           <div class="col-md-4">
-            <button type="submit" class="btn-cek w-100">Cek</button>
+            <button type="submit" class="btn-submit-pesan w-100" style="padding-top: 10px; padding-bottom: 10px; border-radius: 5px;">Cek</button>
           </div>
         </div>
       </form>
@@ -101,9 +45,9 @@
 
   @if(isset($pemesanan))
     @if($pemesanan->count() > 0)
-      <div class="card">
-        <div class="card-header">Hasil Pemesanan</div>
-        <div class="card-body p-0">
+      <div class="form-card-hasil-card">
+        <div class="form-card-header">Hasil Pemesanan</div>
+        <div class="form-card-body p-0">
           <div class="table-responsive">
             <table class="table table-bordered mb-0">
               <thead>
