@@ -42,8 +42,10 @@ Route::get('/api/jadwal', function () {
         ]);
 });
 
-Route::get('/admin/pengaturan', [PengaturanController::class, 'index'])->name('admin.pengaturan');
- 
+// Pengaturan - sekarang 2 halaman terpisah (User & Gedung)
+Route::get('/admin/pengaturan/user', [PengaturanController::class, 'indexUser'])->name('admin.pengaturan.user');
+Route::get('/admin/pengaturan/gedung', [PengaturanController::class, 'indexGedung'])->name('admin.pengaturan.gedung');
+
 // Manage User
 Route::post('/admin/pengaturan/user', [PengaturanController::class, 'storeUser']);
 Route::put('/admin/pengaturan/user/{no}', [PengaturanController::class, 'updateUser']);
@@ -60,8 +62,8 @@ Route::put('/admin/pengaturan/pejabat/{posisi}', [PengaturanController::class, '
 // Tarif Gedung
 Route::put('/admin/pengaturan/gedung/{kode}', [PengaturanController::class, 'updateGedung']);
  
-// Fasilitas
-Route::put('/admin/pengaturan/fasilitas/{id}', [PengaturanController::class, 'updateFasilitas']);
+// Fasilitas (sekarang per gedung, param-nya {kode} bukan {id} lagi)
+Route::put('/admin/pengaturan/fasilitas/{kode}', [PengaturanController::class, 'updateFasilitas']);
 
 Route::get('/informasi', function () {
     $gedungs = DB::table('gedung')->orderBy('kode')->get();

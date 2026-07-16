@@ -85,11 +85,16 @@
                 </ul>
             </li>
 
-            <li class="sidebar-item {{ request()->is('admin/pengaturan') ? 'active' : '' }}">
-                <a href="{{ url('/admin/pengaturan') }}">
+            <li class="sidebar-item has-submenu {{ request()->is('admin/pengaturan*') ? 'open active' : '' }}">
+                <a href="#" class="submenu-toggle">
                     <i class="bi bi-gear"></i>
                     <span class="nav-text">Pengaturan</span>
+                    <i class="bi bi-chevron-down submenu-caret"></i>
                 </a>
+                <ul class="submenu {{ request()->is('admin/pengaturan*') ? 'open' : '' }}">
+                    <li><a href="{{ url('/admin/pengaturan/user') }}"><span class="nav-text">Pengaturan User</span></a></li>
+                    <li><a href="{{ url('/admin/pengaturan/gedung') }}"><span class="nav-text">Pengaturan Gedung</span></a></li>
+                </ul>
             </li>
 
         </ul>
