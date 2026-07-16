@@ -85,7 +85,9 @@ if ($request->gedung === 'Balai Sasana Widya Praja') {
     }
 
     // Simpan ke tabel pemesan
+    $kodeBooking = 'PES-' . now()->format('Ymd') . '-' . strtoupper(substr(uniqid(), -4));
     $pemesan = Pemesan::create([
+    'kode_booking' => $kodeBooking,
     'no' => $request->no_ktp,
     'pemesan' => $request->nama_pemesan,
     'pemakai' => $request->nama_pemakai,
@@ -121,23 +123,12 @@ if ($request->gedung === 'Balai Sasana Widya Praja') {
         'retribusi' => 0,
     ]);
 
-    return redirect()->route('pesan.sukses')->with('data', [
-        'no_ktp' => $request->no_ktp,
-        'nama_pemesan' => $request->nama_pemesan,
-        'nama_pemakai' => $request->nama_pemakai,
-        'gedung' => $request->gedung,
-        'tanggal_pemakaian' => $request->tanggal_pemakaian,
-        'waktu_pakai' => $request->waktu_pakai,
-        'keperluan' => $request->keperluan,
-    ]);
+    return redirect()->route('pesan.sukses', $kodeBooking);
 }
 
-public function sukses()
+public function sukses($kode_booking)
 {
-    $data = session('data');
-    if (!$data) {
-        return redirect()->route('pesan');
-    }
-    return view('pesan-sukses', compact('data'));
+    $pemesanan = Pemesan::where('kode_booking', $kode_booking)->firstOrFail();
+    return view('pesan-sukses', compact('pemesanan'));
 }
 }

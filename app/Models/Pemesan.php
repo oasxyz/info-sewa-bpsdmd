@@ -11,7 +11,7 @@ class Pemesan extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'no', 'pemesan', 'pemakai', 'email', 'alamat', 'telp', 'hp',
+        'kode_booking', 'no', 'pemesan', 'pemakai', 'email', 'alamat', 'telp', 'hp',
         'keperluan', 'tanggal_pakai', 'waktu', 'gedung', 'fasilitas',
         'instansi', 'temp', 'tanggal_pesan', 'status'
     ];

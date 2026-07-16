@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\GrafikController;
 use App\Http\Controllers\PemesananController;
+use App\Http\Controllers\CekPesananController;
 use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\PengaturanController;
 use Illuminate\Support\Facades\Route;
@@ -13,7 +14,9 @@ use App\Http\Controllers\LaporanController;
 Route::get('/', fn() => view('home-infosewa'))->name('home');
 Route::get('/pesan', [PemesananController::class, 'index'])->name('pesan');
 Route::post('/pesan', [PemesananController::class, 'store']);
-Route::get('/pesan/sukses', [PemesananController::class, 'sukses'])->name('pesan.sukses');
+Route::get('/pesan/sukses/{kode_booking}', [PemesananController::class, 'sukses'])->name('pesan.sukses');
+Route::get('/cek-pesanan', [CekPesananController::class, 'index'])->name('cek.status');
+Route::post('/cek-pesanan', [CekPesananController::class, 'cek']);
 
 // Admin Routes
 Route::get('/admin/login', [AdminAuthController::class, 'showLoginForm'])->name('admin.login');
@@ -22,7 +25,8 @@ Route::get('/admin/dashboard', [AdminAuthController::class, 'dashboard'])->name(
 Route::get('/admin/pemesanan', [AdminAuthController::class, 'daftarPemesan'])->name('admin.pemesanan');
 Route::get('/admin/logout', [AdminAuthController::class, 'logout'])->name('admin.logout'); 
 Route::post('/admin/pemesanan/{id}/status', [AdminAuthController::class, 'ubahStatus'])->name('admin.pemesanan.status');
-
+Route::get('/admin/pemesanan/tambah', [AdminAuthController::class, 'tambahPemesan'])->name('admin.pemesanan.tambah');
+Route::post('/admin/pemesanan/tambah', [AdminAuthController::class, 'storePemesan']);
 Route::get('/admin/laporan/bayar-dimuka', [LaporanController::class, 'bayarDimuka'])->name('admin.laporan.bayar_dimuka');
 Route::get('/admin/laporan/penerimaan', [LaporanController::class, 'penerimaan'])->name('admin.laporan.penerimaan');
 Route::get('/admin/laporan/pemakai-gedung', [LaporanController::class, 'pemakaiGedung'])->name('admin.laporan.pemakai_gedung');
@@ -42,8 +46,10 @@ Route::get('/api/jadwal', function () {
         ]);
 });
 
-Route::get('/admin/pengaturan', [PengaturanController::class, 'index'])->name('admin.pengaturan');
- 
+// Pengaturan - sekarang 2 halaman terpisah (User & Gedung)
+Route::get('/admin/pengaturan/user', [PengaturanController::class, 'indexUser'])->name('admin.pengaturan.user');
+Route::get('/admin/pengaturan/gedung', [PengaturanController::class, 'indexGedung'])->name('admin.pengaturan.gedung');
+
 // Manage User
 Route::post('/admin/pengaturan/user', [PengaturanController::class, 'storeUser']);
 Route::put('/admin/pengaturan/user/{no}', [PengaturanController::class, 'updateUser']);
@@ -60,8 +66,8 @@ Route::put('/admin/pengaturan/pejabat/{posisi}', [PengaturanController::class, '
 // Tarif Gedung
 Route::put('/admin/pengaturan/gedung/{kode}', [PengaturanController::class, 'updateGedung']);
  
-// Fasilitas
-Route::put('/admin/pengaturan/fasilitas/{id}', [PengaturanController::class, 'updateFasilitas']);
+// Fasilitas (sekarang per gedung, param-nya {kode} bukan {id} lagi)
+Route::put('/admin/pengaturan/fasilitas/{kode}', [PengaturanController::class, 'updateFasilitas']);
 
 Route::get('/informasi', function () {
     $gedungs = DB::table('gedung')->orderBy('kode')->get();

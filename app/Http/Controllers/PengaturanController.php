@@ -8,7 +8,8 @@ use Illuminate\Support\Facades\Hash;
 
 class PengaturanController extends Controller
 {
-    public function index()
+    // ===== HALAMAN: PENGATURAN USER =====
+    public function indexUser()
     {
         if (! session()->has('login_user')) {
             return redirect()->route('admin.login');
@@ -18,12 +19,23 @@ class PengaturanController extends Controller
         $kontaks = DB::table('kontak')->orderBy('no')->get();
         $sekretaris = DB::table('pejabat')->where('posisi', 'sekretaris')->first();
         $bendahara = DB::table('pejabat')->where('posisi', 'bendahara')->first();
-        $gedungs = DB::table('gedung')->orderBy('gedung')->get();
-        $fasilitas = DB::table('fasilitas')->first();
 
-        return view('auth.pengaturan', compact(
-            'users', 'kontaks', 'sekretaris', 'bendahara', 'gedungs', 'fasilitas'
+        return view('auth.pengaturan-user', compact(
+            'users', 'kontaks', 'sekretaris', 'bendahara'
         ));
+    }
+
+    // ===== HALAMAN: PENGATURAN GEDUNG =====
+    public function indexGedung()
+    {
+        if (! session()->has('login_user')) {
+            return redirect()->route('admin.login');
+        }
+
+        $gedungs = DB::table('gedung')->orderBy('gedung')->get();
+        $fasilitasList = DB::table('fasilitas')->get();
+
+        return view('auth.pengaturan-gedung', compact('gedungs', 'fasilitasList'));
     }
 
     // ===== MANAGE USER =====
@@ -142,15 +154,15 @@ class PengaturanController extends Controller
         return back()->with('success', 'Tarif gedung berhasil diperbarui.');
     }
 
-    // ===== FASILITAS =====
+    // ===== FASILITAS GEDUNG =====
 
-    public function updateFasilitas(Request $request, $id)
+    public function updateFasilitas(Request $request, $kode)
     {
         $request->validate([
             'deskripsi_fasilitas' => 'required|string',
         ]);
 
-        DB::table('fasilitas')->where('id_fasilitas', $id)->update([
+        DB::table('fasilitas')->where('kode_gedung', $kode)->update([
             'deskripsi_fasilitas' => $request->deskripsi_fasilitas,
         ]);
 
