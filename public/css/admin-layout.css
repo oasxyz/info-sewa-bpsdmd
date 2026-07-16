@@ -3,6 +3,7 @@
   --yellow-font: #fed136;
   --text-dark: #17150f;
   --text-gray: #4a4640;
+  --peach-bg: #ffffff;
   --sidebar-width: 260px;
   --sidebar-collapsed-width: 76px;
 }
@@ -29,7 +30,7 @@ body {
   display: flex;
   flex-direction: column;
   transition: width .25s ease;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 .admin-layout.sidebar-collapsed .admin-sidebar {
@@ -39,8 +40,8 @@ body {
 .sidebar-brand {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 20px;
+  gap: 8px;
+  padding: 16px 20px;
   border-bottom: 1px solid rgba(255,255,255,.08);
 }
 
@@ -64,7 +65,16 @@ body {
 .sidebar-brand .brand-text {
   color: var(--yellow-font);
   font-weight: 700;
-  font-size: 2.2rem;
+  font-size: 2rem;
+  line-height: 1.1;
+  margin-bottom: 4px;
+  white-space: nowrap;
+}
+
+.sidebar-brand .brand-text-sub {
+  color: var(--peach-bg);
+  font-size: 1.2rem;
+  line-height: 1.2;
   white-space: nowrap;
 }
 
@@ -204,6 +214,7 @@ body {
 /* ===== COLLAPSED STATE (desktop, icon-only) ===== */
 .admin-layout.sidebar-collapsed .nav-text,
 .admin-layout.sidebar-collapsed .brand-text,
+.admin-layout.sidebar-collapsed .brand-text-sub,
 .admin-layout.sidebar-collapsed .admin-name,
 .admin-layout.sidebar-collapsed .admin-role,
 .admin-layout.sidebar-collapsed .submenu-caret {
@@ -246,10 +257,12 @@ body {
 
 .admin-topbar {
   background: var(--black-bg);
-  padding: 14px 24px;
+  padding: 14px 32px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
+  z-index: 1049;
 }
 
 .sidebar-toggle-btn {

@@ -28,7 +28,10 @@
             <div class="brand-logo">
                 <img src="{{ asset('images/logo-jateng.png') }}" alt="Logo Jawa Tengah">
             </div>
-            <span class="brand-text">INFO SEWA</span>
+            <div>
+                <div class="brand-text">INFO SEWA</div>
+                <div class="brand-text-sub">BPSDMD Provinsi Jawa Tengah</div>
+            </div>
         </div>
 
         <div class="sidebar-admin-info">
