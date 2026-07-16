@@ -10,36 +10,49 @@ $(document).ready(function () {
     }
 });
 
-// ===== DROPDOWN NAVBAR ADMIN (klik, bukan hover) =====
+// ===== SIDEBAR TOGGLE (minimize/maximize) =====
 document.addEventListener('DOMContentLoaded', function () {
-    var toggles = document.querySelectorAll('.dropdown-toggle, .admin-user-btn');
+    const layout = document.getElementById('adminLayout');
+    const toggleBtn = document.getElementById('sidebarToggleBtn');
 
-    toggles.forEach(function (toggle) {
-        toggle.addEventListener('click', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
+    if (toggleBtn && layout) {
+        // Balikin state terakhir (khusus desktop, biar gak ke-reset tiap pindah halaman)
+        if (window.innerWidth > 860 && localStorage.getItem('sidebarCollapsed') === '1') {
+            layout.classList.add('sidebar-collapsed');
+        }
 
-            var parent = toggle.closest('.dropdown, .admin-user-dropdown');
-            if (!parent) return;
+        toggleBtn.addEventListener('click', function () {
+            layout.classList.toggle('sidebar-collapsed');
 
-            var sudahKebuka = parent.classList.contains('dropdown-active');
-
-            // Tutup semua dropdown lain yang lagi kebuka dulu
-            document.querySelectorAll('.dropdown-active').forEach(function (el) {
-                el.classList.remove('dropdown-active');
-            });
-
-            // Kalau tadinya ketutup, buka. Kalau tadinya kebuka, ya udah ketutup (toggle).
-            if (!sudahKebuka) {
-                parent.classList.add('dropdown-active');
+            if (window.innerWidth > 860) {
+                localStorage.setItem(
+                    'sidebarCollapsed',
+                    layout.classList.contains('sidebar-collapsed') ? '1' : '0'
+                );
             }
         });
-    });
+    }
 
-    // Klik di luar area dropdown manapun -> tutup semua
-    document.addEventListener('click', function () {
-        document.querySelectorAll('.dropdown-active').forEach(function (el) {
-            el.classList.remove('dropdown-active');
+    // ===== ACCORDION SUBMENU (Laporan, Grafik, dst) =====
+    document.querySelectorAll('.submenu-toggle').forEach(function (toggle) {
+        toggle.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            const item = toggle.closest('.sidebar-item');
+            const submenu = item.querySelector('.submenu');
+            const sudahKebuka = item.classList.contains('open');
+
+            // Tutup submenu lain yang lagi kebuka
+            document.querySelectorAll('.sidebar-item.has-submenu.open').forEach(function (el) {
+                el.classList.remove('open');
+                const s = el.querySelector('.submenu');
+                if (s) s.classList.remove('open');
+            });
+
+            if (!sudahKebuka) {
+                item.classList.add('open');
+                submenu.classList.add('open');
+            }
         });
     });
 });

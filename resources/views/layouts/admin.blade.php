@@ -19,102 +19,133 @@
 </head>
 <body>
 
-    <!-- ================= HEADER ================= -->
-    <header class="admin-header">
-        <div class="admin-header-inner">
+<div class="admin-layout" id="adminLayout">
 
-            <div class="admin-brand">
-                <div class="brand-logo">
-                    <img src="{{ asset('images/logo-jateng.png') }}" alt="Logo Jawa Tengah">
-                </div>
-                <div>
-                    <p class="brand-title">SISTEM INFORMASI PEMESANAN GEDUNG</p>
-                    <p class="brand-sub">BPSDMD Provinsi Jawa Tengah</p>
-                </div>
+    <!-- ================= SIDEBAR ================= -->
+    <aside class="admin-sidebar" id="adminSidebar">
+
+        <div class="sidebar-brand">
+            <div class="brand-logo">
+                <img src="{{ asset('images/logo-jateng.png') }}" alt="Logo Jawa Tengah">
             </div>
-
-            <div class="dropdown admin-user-dropdown">
-                <button class="btn admin-user-btn dropdown-toggle" type="button" data-toggle="dropdown">
-                    <i class="bi bi-person-circle"></i> Admin ({{ Session::get('login_user') }}) <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu">
-                    <li><a href="{{ route('admin.logout') }}">Keluar</a></li>
-                </ul>
-            </div>
-
+            <span class="brand-text">INFO SEWA</span>
         </div>
-    </header>
 
-    <!-- ================= SUB NAVBAR ================= -->
-    <nav class="admin-subnav">
-        <ul class="admin-nav-menu">
-            <li class="{{ request()->is('admin/dashboard') || request()->is('admin') ? 'active' : '' }}">
-                <a href="{{ url('/admin/dashboard') }}">Dashboard</a>
+        <div class="sidebar-admin-info">
+            <div class="admin-avatar"><i class="bi bi-person-circle"></i></div>
+            <div class="admin-name">Admin</div>
+            <div class="admin-role">{{ Session::get('login_user') }}</div>
+        </div>
+
+        <ul class="sidebar-nav">
+
+            <li class="sidebar-item {{ request()->is('admin/dashboard') || request()->is('admin') ? 'active' : '' }}">
+                <a href="{{ url('/admin/dashboard') }}">
+                    <i class="bi bi-speedometer2"></i>
+                    <span class="nav-text">Dashboard</span>
+                </a>
             </li>
-            <li class="{{ request()->is('admin/pemesanan') ? 'active' : '' }}">
-                <a href="{{ route('admin.pemesanan') }}">Data Pemesanan</a>
+
+            <li class="sidebar-item {{ request()->is('admin/pemesanan') ? 'active' : '' }}">
+                <a href="{{ route('admin.pemesanan') }}">
+                    <i class="bi bi-journal-text"></i>
+                    <span class="nav-text">Data Pemesanan</span>
+                </a>
             </li>
-            <li>
-                <a href="#">Tambah Pemesan</a>
+
+            <li class="sidebar-item">
+                <a href="#">
+                    <i class="bi bi-plus-circle"></i>
+                    <span class="nav-text">Tambah Pemesan</span>
+                </a>
             </li>
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle">Laporan <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                    <li><a href="{{ route('admin.laporan.bayar_dimuka') }}">Laporan Bayar Dimuka</a></li>
-                    <li><a href="{{ route('admin.laporan.penerimaan') }}">Laporan Penerimaan</a></li>
-                    <li><a href="{{ route('admin.laporan.pemakai_gedung') }}">Laporan Pemakai Gedung</a></li>
+
+            <li class="sidebar-item has-submenu {{ request()->is('admin/laporan*') ? 'open active' : '' }}">
+                <a href="#" class="submenu-toggle">
+                    <i class="bi bi-bar-chart-line"></i>
+                    <span class="nav-text">Laporan</span>
+                    <i class="bi bi-chevron-down submenu-caret"></i>
+                </a>
+                <ul class="submenu {{ request()->is('admin/laporan*') ? 'open' : '' }}">
+                    <li><a href="{{ route('admin.laporan.bayar_dimuka') }}"><span class="nav-text">Laporan Bayar Dimuka</span></a></li>
+                    <li><a href="{{ route('admin.laporan.penerimaan') }}"><span class="nav-text">Laporan Penerimaan</span></a></li>
+                    <li><a href="{{ route('admin.laporan.pemakai_gedung') }}"><span class="nav-text">Laporan Pemakai Gedung</span></a></li>
                 </ul>
             </li>
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle">Grafik <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                    <li><a href="{{ url('/admin/grafik/jumlah-pemakai') }}">Jumlah Pemakai Pertahun</a></li>
-                    <li><a href="{{ url('/admin/grafik/rekapitulasi') }}">Rekapitulasi</a></li>
+
+            <li class="sidebar-item has-submenu {{ request()->is('admin/grafik*') ? 'open active' : '' }}">
+                <a href="#" class="submenu-toggle">
+                    <i class="bi bi-graph-up"></i>
+                    <span class="nav-text">Grafik</span>
+                    <i class="bi bi-chevron-down submenu-caret"></i>
+                </a>
+                <ul class="submenu {{ request()->is('admin/grafik*') ? 'open' : '' }}">
+                    <li><a href="{{ url('/admin/grafik/jumlah-pemakai') }}"><span class="nav-text">Jumlah Pemakai Pertahun</span></a></li>
+                    <li><a href="{{ url('/admin/grafik/rekapitulasi') }}"><span class="nav-text">Rekapitulasi</span></a></li>
                 </ul>
             </li>
-            <li class="{{ request()->is('admin/pengaturan') ? 'active' : '' }}">
-                <a href="{{ url('/admin/pengaturan') }}">Pengaturan</a>
+
+            <li class="sidebar-item {{ request()->is('admin/pengaturan') ? 'active' : '' }}">
+                <a href="{{ url('/admin/pengaturan') }}">
+                    <i class="bi bi-gear"></i>
+                    <span class="nav-text">Pengaturan</span>
+                </a>
             </li>
+
         </ul>
-    </nav>
+    </aside>
 
-    <!-- ================= CONTENT ================= -->
-    <main class="container-fluid content1">
-        @yield('content')
-    </main>
+    <!-- ================= MAIN ================= -->
+    <div class="admin-main">
 
-    <!-- ================= FOOTER (samain kayak public site) ================= -->
-    <footer class="site-footer">
-        <div class="footer-inner">
-            <div class="footer-col">
-                <h6>BPSDMD<br>PROVINSI JAWA TENGAH</h6>
-                <p>Jl. Setiabudi No. 201 A, Semarang 50263</p>
-                <p>Telepon: 024-7472046</p>
-                <p>Faximile: 7472930</p>
-                <p>Email: bpsdmd@jatengprov.go.id</p>
-            </div>
-            <div class="footer-col footer-col-center">
-                <h6>Link Terkait</h6>
-                <p><a href="#">Website BPSDMD</a></p>
-                <p><a href="#">PPID BPSDMD</a></p>
-            </div>
-            <div class="footer-col footer-col-end">
-                <h6>Follow Us</h6>
-                <div class="footer-social">
-                    <a href="#"><i class="bi bi-instagram"></i></a>
-                    <a href="#"><i class="bi bi-facebook"></i></a>
-                    <a href="#"><i class="bi bi-twitter-x"></i></a>
+        <div class="admin-topbar">
+            <button class="sidebar-toggle-btn" id="sidebarToggleBtn" type="button" aria-label="Buka/tutup sidebar">
+                <i class="bi bi-list"></i>
+            </button>
+            <a href="{{ route('admin.logout') }}" class="topbar-logout">
+                <i class="bi bi-power"></i> Keluar
+            </a>
+        </div>
+
+        <main class="admin-content">
+            @yield('content')
+        </main>
+
+        <!-- ================= FOOTER (samain kayak public site) ================= -->
+        <footer class="site-footer">
+            <div class="footer-inner">
+                <div class="footer-col">
+                    <h6>BPSDMD<br>PROVINSI JAWA TENGAH</h6>
+                    <p>Jl. Setiabudi No. 201 A, Semarang 50263</p>
+                    <p>Telepon: 024-7472046</p>
+                    <p>Faximile: 7472930</p>
+                    <p>Email: bpsdmd@jatengprov.go.id</p>
+                </div>
+                <div class="footer-col footer-col-center">
+                    <h6>Link Terkait</h6>
+                    <p><a href="#">Website BPSDMD</a></p>
+                    <p><a href="#">PPID BPSDMD</a></p>
+                </div>
+                <div class="footer-col footer-col-end">
+                    <h6>Follow Us</h6>
+                    <div class="footer-social">
+                        <a href="#"><i class="bi bi-instagram"></i></a>
+                        <a href="#"><i class="bi bi-facebook"></i></a>
+                        <a href="#"><i class="bi bi-twitter-x"></i></a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </footer>
+        </footer>
 
-    <script src="{{ asset('assets/fancybox/lib/jquery-1.10.1.min.js') }}"></script>
-    <script src="{{ asset('assets/fancybox/source/jquery.fancybox.js') }}"></script>
-    <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('assets/js/bootstrap3-wysihtml5.all.min.js') }}"></script>
+    </div>
+</div>
 
-    <script src="{{ asset('js/admin-layout.js') }}"></script>
-    @stack('scripts')
+<script src="{{ asset('assets/fancybox/lib/jquery-1.10.1.min.js') }}"></script>
+<script src="{{ asset('assets/fancybox/source/jquery.fancybox.js') }}"></script>
+<script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('assets/js/bootstrap3-wysihtml5.all.min.js') }}"></script>
+
+<script src="{{ asset('js/admin-layout.js') }}"></script>
+@stack('scripts')
 </body>
 </html>
