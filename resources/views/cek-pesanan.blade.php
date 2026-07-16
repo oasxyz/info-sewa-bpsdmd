@@ -45,7 +45,7 @@
 
   @if(isset($pemesanan))
     @if($pemesanan->count() > 0)
-      <div class="form-card-hasil-card">
+      <div class="form-card hasil-card">
         <div class="form-card-header">Hasil Pemesanan</div>
         <div class="form-card-body p-0">
           <div class="table-responsive">
@@ -58,6 +58,7 @@
                   <th>Waktu</th>
                   <th>Keperluan</th>
                   <th>Status</th>
+                  <th class="text-center">Cetak</th>
                 </tr>
               </thead>
               <tbody>
@@ -91,10 +92,13 @@
                       @break
                     @endswitch
                   </td>
+                  <td class="text-center">
+                    <button onclick="window.print()" class="btn btn-sm btn-primary">Cetak</button>
+                  </td>
                 </tr>
                 @if($p->status === 'terverifikasi')
                 <tr style="background:#f8faff;">
-                  <td colspan="6" class="p-3">
+                  <td colspan="7" class="p-3">
                     <div class="info-bayar">
                       <h6><i class="bi bi-credit-card me-1"></i> Informasi Pembayaran</h6>
                       <p><strong>Bank:</strong> {{ config('pengaturan.nama_bank') }}</p>
