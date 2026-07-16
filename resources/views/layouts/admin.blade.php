@@ -53,11 +53,11 @@
                 </a>
             </li>
 
-            <li class="sidebar-item">
-                <a href="#">
-                    <i class="bi bi-plus-circle"></i>
-                    <span class="nav-text">Tambah Pemesan</span>
-                </a>
+            <li class="sidebar-item {{ request()->routeIs('admin.pemesanan.tambah') ? 'active' : '' }}">
+    <a href="{{ route('admin.pemesanan.tambah') }}">
+        <i class="bi bi-plus-circle"></i>
+        <span class="nav-text">Tambah Pemesan</span>
+    </a>
             </li>
 
             <li class="sidebar-item has-submenu {{ request()->is('admin/laporan*') ? 'open active' : '' }}">

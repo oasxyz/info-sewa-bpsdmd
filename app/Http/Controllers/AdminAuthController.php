@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
-use App\Models\Pemesan;
+use App\Models\Gedung;
+use App\Models\Pemakai;
+use App\Models\Pemesan; 
+
 
 class AdminAuthController extends Controller
 {
@@ -100,6 +103,92 @@ public function ubahStatus($id)
     }
 
     return back()->with('success', 'Status berhasil diupdate');
+}
+
+    public function tambahPemesan()
+{
+    if (!session()->has('login_user')) return redirect()->route('admin.login');
+
+    $gedungs = Gedung::all();
+    return view('auth.pemesanan-tambah', compact('gedungs'));
+}
+
+public function storePemesan(Request $request)
+{
+    if (!session()->has('login_user')) return redirect()->route('admin.login');
+
+    $request->validate([
+        'no_ktp' => 'required|numeric',
+        'nama_pemesan' => 'required',
+        'nama_pemakai' => 'required',
+        'no_telepon_pemesan' => 'required|numeric',
+        'no_telepon_pemakai' => 'required|numeric',
+        'email' => 'required|email',
+        'alamat' => 'required',
+        'tanggal_pemakaian' => 'required|date',
+        'waktu_pakai' => 'required|in:siang,malam,1hari',
+        'keperluan' => 'required',
+        'gedung' => 'required',
+    ]);
+
+    // Cek duplikat slot
+    $cek = Pemesan::where('tanggal_pakai', $request->tanggal_pemakaian)
+        ->where('gedung', $request->gedung)
+        ->get();
+
+    foreach ($cek as $c) {
+        if ($c->waktu === '1HARI') {
+            return back()->withErrors(['tanggal_pemakaian' => 'Tanggal ini sudah dipesan FULL DAY untuk gedung ' . $request->gedung])->withInput();
+        }
+        if ($request->waktu_pakai === 'siang' && $c->waktu === 'SIANG') {
+            return back()->withErrors(['waktu_pakai' => 'Slot siang sudah dipesan di tanggal dan gedung ini'])->withInput();
+        }
+        if ($request->waktu_pakai === 'malam' && $c->waktu === 'MALAM') {
+            return back()->withErrors(['waktu_pakai' => 'Slot malam sudah dipesan di tanggal dan gedung ini'])->withInput();
+        }
+        if ($request->waktu_pakai === '1hari' && in_array($c->waktu, ['SIANG', 'MALAM'])) {
+            return back()->withErrors(['waktu_pakai' => 'Tidak bisa booking full day, karena slot siang/malam sudah ada yang pesan'])->withInput();
+        }
+    }
+
+    // Simpan ke tabel pemesan (status langsung terverifikasi)
+    $pemesan = Pemesan::create([
+        'no' => $request->no_ktp,
+        'pemesan' => $request->nama_pemesan,
+        'pemakai' => $request->nama_pemakai,
+        'email' => $request->email,
+        'alamat' => $request->alamat,
+        'telp' => $request->no_telepon_pemesan,
+        'hp' => $request->no_telepon_pemesan,
+        'keperluan' => $request->keperluan,
+        'tanggal_pakai' => $request->tanggal_pemakaian,
+        'waktu' => strtoupper($request->waktu_pakai),
+        'gedung' => $request->gedung,
+        'fasilitas' => '',
+        'instansi' => '',
+        'temp' => 0,
+        'status' => 'terverifikasi',
+        'tanggal_pesan' => now(),
+    ]);
+
+    // Simpan ke tabel pemakai
+    Pemakai::create([
+        'no' => $request->no_ktp,
+        'pemesan' => $request->nama_pemesan,
+        'pemakai' => $request->nama_pemakai,
+        'alamat' => $request->alamat,
+        'telp' => $request->no_telepon_pemesan,
+        'hp' => $request->no_telepon_pemakai,
+        'keperluan' => $request->keperluan,
+        'fasilitas' => '',
+        'instansi' => '',
+        'tanggal_pakai' => $request->tanggal_pemakaian,
+        'waktu' => strtoupper($request->waktu_pakai),
+        'gedung' => $request->gedung,
+        'retribusi' => 0,
+    ]);
+
+    return redirect()->route('admin.pemesanan.tambah')->with('success', 'Pemesanan berhasil ditambahkan');
 }
 
     public function logout() {
