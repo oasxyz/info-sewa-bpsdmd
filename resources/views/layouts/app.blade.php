@@ -28,11 +28,12 @@
       </div>
     </div>
 
-    <div class="nav-links d-none d-lg-flex">
-      <a href="{{ url('/') }}" class="{{ request()->is('/') ? 'active' : '' }}">Home</a>
-      <a href="{{ url('/pesan') }}" class="{{ request()->is('pesan') ? 'active' : '' }}">Pesan</a>
-      <a href="{{ url('/informasi') }}" class="{{ request()->is('informasi') ? 'active' : '' }}">Informasi</a>
-    </div>
+  <div class="nav-links d-none d-lg-flex">
+    <a href="{{ url('/') }}" class="{{ request()->is('/') ? 'active' : '' }}">Home</a>
+    <a href="{{ url('/pesan') }}" class="{{ request()->is('pesan') ? 'active' : '' }}">Pesan</a>
+    <a href="{{ url('/cek-pesanan') }}" class="{{ request()->is('cek-pesanan') ? 'active' : '' }}">Cek Pemesanan</a>
+    <a href="{{ url('/informasi') }}" class="{{ request()->is('informasi') ? 'active' : '' }}">Informasi</a>
+  </div>
 
     @yield('nav-cta')
   </div>
