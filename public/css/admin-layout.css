@@ -295,7 +295,7 @@ body {
 .admin-content {
   flex: 1;
   padding: 24px;
-  max-width: 1400px;
+  max-width: 98%;
   width: 100%;
   margin: 0 auto;
 }
