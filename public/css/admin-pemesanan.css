@@ -5,7 +5,7 @@
   display: inline-block;
   padding: 4px 10px;
   border-radius: 999px;
-  font-size: .78rem;
+  font-size: 1rem;
   font-weight: 700;
   white-space: nowrap;
 }
@@ -14,7 +14,7 @@
 .status-dipesan       { background: #e5f6e8; color: #1e6b2e; border: 1px solid #6aa84f; }
 .status-dibatalkan    { background: #fbe7e7; color: #7a1f1f; border: 1px solid #d97b7b; }
 
-.status-sisa { margin-top: 4px; font-size: .74rem; color: #8a6d00; }
+.status-sisa { margin-top: 4px; font-size: 1rem; color: #8a6d00; }
 
 .aksi-form { display: flex; flex-direction: column; gap: 6px; min-width: 130px; }
 
@@ -22,7 +22,7 @@
   border: none;
   border-radius: 5px;
   padding: 6px 10px;
-  font-size: .78rem;
+  font-size: 1.2rem;
   font-weight: 600;
   cursor: pointer;
   color: #fff;
@@ -49,7 +49,7 @@
   border-radius: 4px;
   color: #17150f;
   text-decoration: none;
-  font-size: .85rem;
+  font-size: 1.2rem;
 }
 .pemesanan-pagination .page-item.disabled .page-link { color: #bbb; cursor: not-allowed; }
 .pemesanan-pagination .page-item.active .page-link {
@@ -69,7 +69,7 @@
   padding: 8px 12px;
   border: 1px solid #d8d8d8;
   border-radius: 5px;
-  font-size: .86rem;
+  font-size: 1.4rem;
   font-family: 'Poppins', sans-serif;
   min-width: 140px;
 }
@@ -87,7 +87,7 @@
   border-radius: 5px;
   padding: 9px 20px;
   font-weight: 600;
-  font-size: .85rem;
+  font-size: 1.2rem;
   cursor: pointer;
 }
 
@@ -97,7 +97,7 @@
 
 .btn-reset-filter {
   color: #555;
-  font-size: .85rem;
+  font-size: 1.2rem;
   text-decoration: underline;
   padding: 9px 4px;
 }

@@ -13,19 +13,20 @@
   overflow: hidden;
 }
 .form-tambah-header {
-  background: #f5f5f5;
-  padding: 18px 24px;
+  background: #212529;
+  color: #fed136;
+  padding: 16px 24px;
   font-weight: 700;
-  font-size: 1.15rem;
-  color: #1b2a4b;
-  border-bottom: 1px solid #e2e2e2;
+  font-size: 1.6rem;
+  text-align: center;
+  letter-spacing: .3px;
 }
 .form-tambah-body {
   padding: 32px;
 }
 .form-tambah-body .form-label {
   font-weight: 600;
-  font-size: .9rem;
+  font-size: 1.4rem;
   margin-bottom: 6px;
 }
 .form-tambah-body .form-label .req {
@@ -37,7 +38,7 @@
   border: 1px solid #d8d8d8;
   border-radius: 5px;
   padding: 10px 14px;
-  font-size: .9rem;
+  font-size: 1.2rem;
 }
 .form-tambah-body .form-control:focus,
 .form-tambah-body .form-select:focus {
@@ -56,7 +57,7 @@
   border: none;
   padding: 14px;
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 1.4rem;
   border-radius: 5px;
   cursor: pointer;
 }
@@ -67,12 +68,7 @@
 @endpush
 
 @section('content')
-<div class="container-fluid px-4 py-3">
-
-  <div class="d-flex justify-content-between align-items-center mb-3">
-    <h4 class="fw-bold mb-0">Tambah Pemesanan</h4>
-    <a href="{{ route('admin.pemesanan') }}" class="btn btn-outline-secondary btn-sm">Kembali</a>
-  </div>
+<div>
 
   @if(session('success'))
     <div class="alert-msg alert-success">{{ session('success') }}</div>
@@ -97,7 +93,7 @@
           </div>
         @endif
 
-        <div class="row g-4 mb-1">
+        <div class="row g-4 mb-3">
           <div class="col-md-12">
             <label class="form-label">No. KTP <span class="text-muted fw-normal">(Kartu Tanda Penduduk)</span><span class="req">*</span></label>
             <input type="text" class="form-control" name="no_ktp" placeholder="Nomor KTP" value="{{ old('no_ktp') }}" required>
@@ -105,7 +101,7 @@
           </div>
         </div>
 
-        <div class="row g-4 mt-1">
+        <div class="row g-4 mt-4">
           <div class="col-md-6">
             <label class="form-label">Nama pemesan<span class="req">*</span></label>
             <input type="text" class="form-control" name="nama_pemesan" placeholder="Nama pemesan" value="{{ old('nama_pemesan') }}" required>
@@ -118,7 +114,7 @@
           </div>
         </div>
 
-        <div class="row g-4 mt-1">
+        <div class="row g-4 mt-4">
           <div class="col-md-6">
             <label class="form-label">No. telepon pemesan<span class="req">*</span></label>
             <input type="tel" class="form-control" name="no_telepon_pemesan" placeholder="Nomor telepon pemesan" value="{{ old('no_telepon_pemesan') }}" required>
@@ -131,7 +127,7 @@
           </div>
         </div>
 
-        <div class="row g-4 mt-1">
+        <div class="row g-4 mt-4">
           <div class="col-md-6">
             <label class="form-label">Email<span class="req">*</span></label>
             <input type="email" class="form-control" name="email" placeholder="Alamat email" value="{{ old('email') }}" required>
@@ -144,7 +140,7 @@
           </div>
         </div>
 
-        <div class="row g-4 mt-1">
+        <div class="row g-4 mt-4">
           <div class="col-md-6">
             <label class="form-label">Tanggal pemakaian<span class="req">*</span></label>
             <input type="date" class="form-control" name="tanggal_pemakaian" value="{{ old('tanggal_pemakaian') }}" required>
@@ -171,7 +167,7 @@
           </div>
         </div>
 
-        <div class="row g-4 mt-1 mb-4">
+        <div class="row g-4 mt-4 mb-4">
           <div class="col-md-6">
             <label class="form-label">Gedung yang dipesan</label>
             <select class="form-select" name="gedung" required>

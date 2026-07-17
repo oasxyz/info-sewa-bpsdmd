@@ -8,7 +8,7 @@
     background: #212529;
     color: #fed136;
     font-weight: 700;
-    font-size: 1rem;
+    font-size: 1.6rem;
     padding: 14px 20px;
     letter-spacing: .5px;
 }
@@ -32,7 +32,7 @@
     gap: 4px;
 }
 .filter-group label {
-    font-size: .8rem;
+    font-size: 1.4rem;
     font-weight: 600;
     color: #555;
 }
@@ -40,28 +40,26 @@
     padding: 6px 12px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    font-size: .9rem;
+    font-size: 1.4rem;
     min-width: 100px;
     cursor: pointer;
 }
 .btn-reset {
+    color: #212529;
     padding: 6px 14px;
-    background: #6c757d;
-    color: #fff;
     border-radius: 4px;
-    text-decoration: none;
-    font-size: .85rem;
+    text-decoration: underline;
+    font-size: 1.4rem;
 }
 .btn-reset:hover {
-    background: #5a6268;
-    color: #fff;
+    opacity: 80%;
 }
 
 /* Table */
 .laporan-table {
     width: 100%;
     border-collapse: collapse;
-    font-size: .88rem;
+    font-size: 1.4rem;
 }
 .laporan-table th {
     background: #f8f9fa;
@@ -98,7 +96,7 @@
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    font-size: .8rem;
+    font-size: 1.2rem;
     font-weight: 600;
 }
 .btn-aksi:hover {
