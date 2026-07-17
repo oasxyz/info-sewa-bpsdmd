@@ -128,3 +128,16 @@
   background: #e2e2e2;
   color: #111;
 }
+
+.btn-aksi.btn-mou {
+  background: #6aa8ff;
+  color: #fff;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+}
+.btn-aksi.btn-mou:hover {
+  background: #4a8ae0;
+  color: #fff;
+}
