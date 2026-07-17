@@ -76,6 +76,11 @@
               @else
                 <span class="aksi-selesai">—</span>
               @endif
+
+              <div class="aksi-surat">
+                <a href="#" class="btn-aksi btn-surat" target="_blank">Surat Permohonan</a>
+                <a href="#" class="btn-aksi btn-surat" target="_blank">Surat Balasan</a>
+              </div>
             </td>
           </tr>
           @empty
