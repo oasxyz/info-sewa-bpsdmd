@@ -153,6 +153,7 @@ public function storePemesan(Request $request)
 
     // Simpan ke tabel pemesan (status langsung terverifikasi)
     $pemesan = Pemesan::create([
+        'kode_booking' => $kodeBooking = 'PES-' . now()->format('Ymd') . '-' . strtoupper(substr(uniqid(), -4)),
         'no' => $request->no_ktp,
         'pemesan' => $request->nama_pemesan,
         'pemakai' => $request->nama_pemakai,
