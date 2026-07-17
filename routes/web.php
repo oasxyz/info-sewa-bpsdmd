@@ -17,6 +17,7 @@ Route::post('/pesan', [PemesananController::class, 'store']);
 Route::get('/pesan/sukses/{kode_booking}', [PemesananController::class, 'sukses'])->name('pesan.sukses');
 Route::get('/cek-pesanan', [CekPesananController::class, 'index'])->name('cek.status');
 Route::post('/cek-pesanan', [CekPesananController::class, 'cek']);
+Route::get('/cek-pesanan/{kode_booking}/status', [CekPesananController::class, 'status'])->name('cek.status.detail');
 
 // Admin Routes
 Route::get('/admin/login', [AdminAuthController::class, 'showLoginForm'])->name('admin.login');

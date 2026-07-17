@@ -24,4 +24,9 @@ class CekPesananController extends Controller
 
         return view('cek-pesanan', compact('pemesanan'));
     }
+    public function status($kode_booking)
+    {
+        $pemesanan = Pemesan::where('kode_booking', $kode_booking)->firstOrFail();
+        return view('cek-status', compact('pemesanan'));
+    }
 }

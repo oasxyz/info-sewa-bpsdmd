@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Detail Pemesanan - Info Sewa BPSDMD Provinsi Jawa Tengah')
+@section('title', 'Status Pemesanan - Info Sewa BPSDMD Provinsi Jawa Tengah')
 
 @push('styles')
 <link rel="stylesheet" href="{{ asset('css/pesan.css') }}">
@@ -22,21 +22,65 @@
   padding: 24px;
   margin-bottom: 20px;
 }
-.info-box-verif {
-  background: #fff6d8;
-  border: 1px solid #fed136;
+.info-box-verif   { background: #fff6d8; border: 1px solid #fed136; }
+.info-box-bayar   { background: #e6f0ff; border: 1px solid #6aa8ff; }
+.info-box-selesai { background: #e5f6e8; border: 1px solid #6aa84f; }
+.info-box-batal   { background: #fbe7e7; border: 1px solid #d97b7b; }
+
+.stepper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 30px 0;
+  flex-wrap: wrap;
+  gap: 0;
 }
-.info-box-bayar {
-  background: #e6f0ff;
-  border: 1px solid #6aa8ff;
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  min-width: 100px;
 }
-.info-box-selesai {
-  background: #e5f6e8;
-  border: 1px solid #6aa84f;
+.step-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  margin-bottom: 8px;
+  transition: all .3s;
 }
-.info-box-batal {
-  background: #fbe7e7;
-  border: 1px solid #d97b7b;
+.step-icon.done    { background: #e5f6e8; color: #1e6b2e; border: 2px solid #6aa84f; }
+.step-icon.active  { background: #fff6d8; color: #8a6d00; border: 2px solid #fed136; animation: pulse 1.5s infinite; }
+.step-icon.pending { background: #f0f0f0; color: #999; border: 2px solid #ddd; }
+.step-icon.cancel  { background: #fbe7e7; color: #7a1f1f; border: 2px solid #d97b7b; }
+.step-label {
+  font-size: .8rem;
+  font-weight: 600;
+  color: #555;
+  max-width: 100px;
+}
+.step-label.done    { color: #1e6b2e; }
+.step-label.active  { color: #8a6d00; }
+.step-label.pending { color: #999; }
+.step-label.cancel  { color: #7a1f1f; }
+
+.step-connector {
+  width: 60px;
+  height: 3px;
+  background: #ddd;
+  margin: 0 4px;
+  margin-bottom: 26px;
+}
+.step-connector.done { background: #6aa84f; }
+.step-connector.cancel { background: #d97b7b; }
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .6; }
 }
 </style>
 @endpush
@@ -44,31 +88,59 @@
 @section('content')
 <div class="page-wrap">
   <div class="form-card">
-    <div class="form-card-header">Detail Pemesanan</div>
+    <div class="form-card-header">Detail Status Pemesanan</div>
     <div class="form-card-body">
-
-      {{-- BADGE STATUS --}}
-      <div class="text-center mb-4">
-        @switch($pemesanan->status)
-          @case('proses')
-            <span class="status-badge status-proses">Menunggu Verifikasi KTP</span>
-          @break
-          @case('terverifikasi')
-            <span class="status-badge status-terverifikasi">Terverifikasi</span>
-          @break
-          @case('dipesan')
-            <span class="status-badge status-dipesan">Selesai (Lunas)</span>
-          @break
-          @case('dibatalkan')
-            <span class="status-badge status-dibatalkan">Dibatalkan</span>
-          @break
-        @endswitch
-      </div>
 
       {{-- KODE BOOKING --}}
       <div class="text-center mb-3">
         <small class="text-muted">Kode Booking</small>
         <h4 class="fw-bold" style="letter-spacing: 2px;">{{ $pemesanan->kode_booking }}</h4>
+      </div>
+
+      {{-- TIMELINE / STEPPER --}}
+      @php
+        $status = $pemesanan->status;
+      @endphp
+      <div class="stepper">
+        {{-- STEP 1: Diajukan --}}
+        <div class="step">
+          <div class="step-icon done"><i class="bi bi-check-circle-fill"></i></div>
+          <div class="step-label done">Diajukan</div>
+        </div>
+        <div class="step-connector done"></div>
+
+        {{-- STEP 2: Verifikasi KTP --}}
+        @if($status === 'dibatalkan')
+          <div class="step">
+            <div class="step-icon cancel"><i class="bi bi-x-circle-fill"></i></div>
+            <div class="step-label cancel">Dibatalkan</div>
+          </div>
+        @else
+          <div class="step">
+            <div class="step-icon {{ $status === 'proses' ? 'active' : 'done' }}">
+              <i class="bi {{ $status === 'proses' ? 'bi-hourglass-split' : 'bi-check-circle-fill' }}"></i>
+            </div>
+            <div class="step-label {{ $status === 'proses' ? 'active' : 'done' }}">Verifikasi KTP</div>
+          </div>
+          <div class="step-connector {{ $status === 'dipesan' || $status === 'terverifikasi' ? 'done' : '' }}"></div>
+
+          {{-- STEP 3: Terverifikasi --}}
+          <div class="step">
+            <div class="step-icon {{ $status === 'terverifikasi' ? 'active' : ($status === 'dipesan' ? 'done' : 'pending') }}">
+              <i class="bi {{ $status === 'terverifikasi' ? 'bi-hourglass-split' : ($status === 'dipesan' ? 'bi-check-circle-fill' : 'bi-circle') }}"></i>
+            </div>
+            <div class="step-label {{ $status === 'terverifikasi' ? 'active' : ($status === 'dipesan' ? 'done' : 'pending') }}">Terverifikasi</div>
+          </div>
+          <div class="step-connector {{ $status === 'dipesan' ? 'done' : '' }}"></div>
+
+          {{-- STEP 4: Pesanan Berhasil --}}
+          <div class="step">
+            <div class="step-icon {{ $status === 'dipesan' ? 'done' : 'pending' }}">
+              <i class="bi {{ $status === 'dipesan' ? 'bi-check-circle-fill' : 'bi-circle' }}"></i>
+            </div>
+            <div class="step-label {{ $status === 'dipesan' ? 'done' : 'pending' }}">Pesanan Berhasil</div>
+          </div>
+        @endif
       </div>
 
       {{-- RINGKASAN PEMESANAN --}}
@@ -85,16 +157,15 @@
         </table>
       </div>
 
-      {{-- KONTEN DINAMIS PER STATUS --}}
-      @switch($pemesanan->status)
+      {{-- INFO PER STATUS --}}
+      @switch($status)
         @case('proses')
           <div class="info-box info-box-verif">
             <h5 class="fw-bold" style="color:#8a6d00;"><i class="bi bi-exclamation-triangle me-2"></i>Verifikasi KTP Diperlukan</h5>
             <p>Pemesanan Anda belum selesai. Lakukan langkah berikut:</p>
             <ol class="mb-0">
-              <li><strong>Cetak bukti pemesanan</strong> ini dengan menekan tombol Cetak di bawah.</li>
               <li>Datang langsung ke <strong>Ruang Layanan Informasi BPSDMD Provinsi Jawa Tengah</strong> pada jam kerja.</li>
-              <li>Tunjukkan <strong>KTP asli</strong> beserta bukti cetak pemesanan.</li>
+              <li>Tunjukkan <strong>KTP asli</strong> beserta kode booking.</li>
               <li><strong>Tanda tangan MOU</strong> (Surat Perjanjian Sewa) di depan petugas.</li>
             </ol>
           </div>
@@ -132,13 +203,11 @@
         @break
       @endswitch
 
-      {{-- TOMBOL --}}
+      {{-- TOMBOL KEMBALI --}}
       <div class="text-center mt-4 d-flex justify-content-center gap-3 flex-wrap">
-        <a href="{{ url('/') }}" class="btn btn-secondary">Kembali ke Beranda</a>
+        <a href="{{ route('cek.status') }}" class="btn btn-secondary">Kembali ke Cek Pemesanan</a>
         <button onclick="window.print()" class="btn btn-primary">Cetak</button>
-        @if($pemesanan->status === 'proses' || $pemesanan->status === 'terverifikasi')
-        @endif
-      </div>
+     </div>
 
     </div>
   </div>

@@ -21,7 +21,7 @@
       <li>Setelah berhasil melakukan pemesanan, lakukan <strong>verifikasi paling lambat 7 hari setelah pemesanan</strong>, dengan cara datang langsung pada jam kerja ke <strong>Ruang Layanan Informasi BPSDMD Provinsi Jawa Tengah</strong> dan menunjukkan <strong>KTP</strong> beserta bukti cetak pemesanan online.</li>
       <li>Jika dalam waktu 7 hari Anda belum melakukan verifikasi, data pemesanan Anda akan dihapus.</li>
       <li>Pelunasan biaya sewa gedung dilakukan <strong>paling lambat 60 hari sebelum tanggal pemakaian.</strong> Apabila melebihi batas waktu tersebut maka pemesanan akan dibatalkan.</li>
-      <li>Penggunaan Gedung Sasana Widya Praja hanya dapat disewa pada hari <strong>Jumat (khusus sesi malam), Sabtu, Minggu</strong> dan hari libur nasional</li>
+      <li>Penggunaan Gedung Sasana Widya Praja hanya dapat disewa pada hari <strong>Jumat (khusus sesi malam), Sabtu, Minggu</strong> dan <strong>hari libur nasional</strong></li>
       <li>Apabila terjadi pembatalan segera hubungi petugas.</li>
     </ol>
   </div>
