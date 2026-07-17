@@ -105,3 +105,26 @@
 .btn-reset-filter:hover {
   color: #212529;
 }
+
+/* ===== TAMBAHIN INI KE admin-pemesanan.css YANG UDAH ADA (jangan timpa semua) ===== */
+
+.aksi-surat {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.btn-aksi.btn-surat {
+  background: #f0f0f0;
+  color: #333;
+  border: 1px solid #d8d8d8;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+}
+
+.btn-aksi.btn-surat:hover {
+  background: #e2e2e2;
+  color: #111;
+}

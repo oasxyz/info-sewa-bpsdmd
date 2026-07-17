@@ -78,3 +78,4 @@ Route::get('/informasi', function () {
 
 Route::get('/admin/grafik/jumlah-pemakai', [GrafikController::class, 'jumlahPemakai'])->name('admin.grafik.pemakai');
 Route::get('/admin/grafik/rekapitulasi', [GrafikController::class, 'rekapitulasi'])->name('admin.grafik.rekap');
+
