@@ -58,7 +58,7 @@
                   <th>Waktu</th>
                   <th>Keperluan</th>
                   <th>Status</th>
-                  <th class="text-center">Status</th>
+                  <th class="text-center">Aksi</th>
                 </tr>
               </thead>
               <tbody>
@@ -93,7 +93,7 @@
                     @endswitch
                   </td>
                   <td class="text-center">
-                    <a href="{{ route('cek.status.detail', $p->kode_booking) }}" class="btn btn-sm btn-info">Cek Status</a>
+                    <a href="{{ route('cek.status.detail', $p->kode_booking) }}" class="btn btn-sm btn-info">Cek Pemesanan</a>
                   </td>
                 </tr>
                 @if($p->status === 'terverifikasi')
