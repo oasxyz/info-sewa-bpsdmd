@@ -38,27 +38,18 @@
               </tbody>
             </table>
             <div class="fasilitas-title">Fasilitas Gedung:</div>
-            <ul class="fasilitas-list">
-              {{-- Catatan: tabel fasilitas di DB masih global (belum per-gedung), jadi ini tetep hardcode per kode --}}
-              @if($g->kode == '1')
-                <li>Kapasitas 800 orang</li>
-                <li>Kursi lipat 100 buah</li>
-                <li>Listrik 30.000 watt</li>
-                <li>Full AC (portable 8 buah)</li>
-                <li>Ruang transit VIP</li>
-                <li>Dapur bersih</li>
-                <li>Toilet</li>
-                <li>Lahan parkir yang luas (tanpa petugas parkir)</li>
-              @elseif($g->kode == '2')
-                <li>Kapasitas 350 orang</li>
-                <li>Kursi lipat 100 buah</li>
-                <li>Listrik 15.000 watt</li>
-                <li>Full AC (portable 6 buah)</li>
-                <li>Ruang transit</li>
-                <li>Toilet</li>
-                <li>Lahan parkir yang luas</li>
-              @endif
-            </ul>
+            @php
+                $f = $fasilitasList->firstWhere('kode_gedung', $g->kode);
+            @endphp
+            @if($f && $f->deskripsi_fasilitas)
+                <ul class="fasilitas-list">
+                    @foreach(preg_split('/<br\s*\/?>/i', $f->deskripsi_fasilitas) as $item)
+                        @if(trim(strip_tags($item)))
+                            <li>{!! trim($item) !!}</li>
+                        @endif
+                    @endforeach
+                </ul>
+            @endif
           </div>
         @endforeach
 

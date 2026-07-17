@@ -11,6 +11,6 @@ class Fasilitas extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'id_fasilitas', 'deskripsi_fasilitas'
+        'id_fasilitas', 'kode_gedung', 'deskripsi_fasilitas'
     ];
 }

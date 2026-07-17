@@ -73,8 +73,9 @@ Route::put('/admin/pengaturan/fasilitas/{kode}', [PengaturanController::class, '
 Route::get('/informasi', function () {
     $gedungs = DB::table('gedung')->orderBy('kode')->get();
     $kontaks = DB::table('kontak')->orderBy('no')->get();
+    $fasilitasList = DB::table('fasilitas')->get();
 
-    return view('informasi', compact('gedungs', 'kontaks'));
+    return view('informasi', compact('gedungs', 'kontaks', 'fasilitasList'));
 })->name('informasi');
 
 Route::get('/admin/grafik/jumlah-pemakai', [GrafikController::class, 'jumlahPemakai'])->name('admin.grafik.pemakai');
