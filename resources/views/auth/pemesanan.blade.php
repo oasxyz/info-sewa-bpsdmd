@@ -64,14 +64,14 @@
               @if($p->status == 'proses')
                 <form action="{{ route('admin.pemesanan.status', $p->id) }}" method="POST" class="aksi-form">
                   @csrf
-                  <button type="submit" name="status" value="terverifikasi" class="btn-aksi btn-verif">Verifikasi KTP</button>
+                  <button type="submit" name="status" value="terverifikasi" class="btn-aksi btn-verif" onclick="return confirm('Verifikasi KTP untuk pemesanan ini?')">Verifikasi KTP</button>
                   <button type="submit" name="status" value="dibatalkan" class="btn-aksi btn-batal" onclick="return confirm('Batalkan pemesanan ini?')">Batalkan</button>
                 </form>
               @elseif($p->status == 'terverifikasi')
             <form action="{{ route('admin.pemesanan.status', $p->id) }}" method="POST" class="aksi-form">
               @csrf
-              <button type="submit" name="status" value="dipesan" class="btn-aksi btn-bayar">Konfirmasi Bayar</button>
-              <a href="#" class="btn-aksi btn-mou">MOU</a>
+              <button type="submit" name="status" value="dipesan" class="btn-aksi btn-bayar" onclick="return confirm('Konfirmasi pembayaran untuk pemesanan ini?')">Konfirmasi Bayar</button>
+              <a href="#" class="btn-aksi btn-mou" onclick="return confirm('Buat MOU untuk pemesanan ini?')">MOU</a>
               <button type="submit" name="status" value="dibatalkan" class="btn-aksi btn-batal" onclick="return confirm('Batalkan pemesanan ini?')">Batalkan</button>
             </form>
               @else
@@ -86,7 +86,7 @@
           </tr>
           @empty
           <tr>
-            <td colspan="8" class="text-center">Belum ada pemesanan buat bulan {{ $judulBulan }} {{ $tahunAktif }}.</td>
+            <td colspan="8" class="text-center">Belum ada pemesanan bulan {{ $judulBulan }} {{ $tahunAktif }}.</td>
           </tr>
           @endforelse
         </tbody>
