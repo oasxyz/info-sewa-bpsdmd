@@ -71,7 +71,7 @@
             <form action="{{ route('admin.pemesanan.status', $p->id) }}" method="POST" class="aksi-form">
               @csrf
               <button type="submit" name="status" value="dipesan" class="btn-aksi btn-bayar" onclick="return confirm('Konfirmasi pembayaran untuk pemesanan ini?')">Konfirmasi Bayar</button>
-              <a href="#" class="btn-aksi btn-mou" onclick="return confirm('Buat MOU untuk pemesanan ini?')">MOU</a>
+              <a href="#" class="btn-aksi btn-mou" >MOU</a>
               <button type="submit" name="status" value="dibatalkan" class="btn-aksi btn-batal" onclick="return confirm('Batalkan pemesanan ini?')">Batalkan</button>
             </form>
               @else
