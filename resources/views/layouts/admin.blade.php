@@ -63,17 +63,11 @@
     </a>
             </li>
 
-            <li class="sidebar-item has-submenu {{ request()->is('admin/laporan*') ? 'open active' : '' }}">
-                <a href="#" class="submenu-toggle">
+            <li class="sidebar-item {{ request()->is('admin/laporan*') ? 'active' : '' }}">
+                <a href="{{ route('admin.laporan') }}">
                     <i class="bi bi-bar-chart-line"></i>
                     <span class="nav-text">Laporan</span>
-                    <i class="bi bi-chevron-down submenu-caret"></i>
                 </a>
-                <ul class="submenu {{ request()->is('admin/laporan*') ? 'open' : '' }}">
-                    <li><a href="{{ route('admin.laporan.bayar_dimuka') }}"><span class="nav-text">Laporan Bayar Dimuka</span></a></li>
-                    <li><a href="{{ route('admin.laporan.penerimaan') }}"><span class="nav-text">Laporan Penerimaan</span></a></li>
-                    <li><a href="{{ route('admin.laporan.pemakai_gedung') }}"><span class="nav-text">Laporan Pemakai Gedung</span></a></li>
-                </ul>
             </li>
 
             <li class="sidebar-item has-submenu {{ request()->is('admin/grafik*') ? 'open active' : '' }}">

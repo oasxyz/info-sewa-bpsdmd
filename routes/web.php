@@ -28,9 +28,7 @@ Route::get('/admin/logout', [AdminAuthController::class, 'logout'])->name('admin
 Route::post('/admin/pemesanan/{id}/status', [AdminAuthController::class, 'ubahStatus'])->name('admin.pemesanan.status');
 Route::get('/admin/pemesanan/tambah', [AdminAuthController::class, 'tambahPemesan'])->name('admin.pemesanan.tambah');
 Route::post('/admin/pemesanan/tambah', [AdminAuthController::class, 'storePemesan']);
-Route::get('/admin/laporan/bayar-dimuka', [LaporanController::class, 'bayarDimuka'])->name('admin.laporan.bayar_dimuka');
-Route::get('/admin/laporan/penerimaan', [LaporanController::class, 'penerimaan'])->name('admin.laporan.penerimaan');
-Route::get('/admin/laporan/pemakai-gedung', [LaporanController::class, 'pemakaiGedung'])->name('admin.laporan.pemakai_gedung');
+Route::get('/admin/laporan', [LaporanController::class, 'index'])->name('admin.laporan');
 
 // API Jadwal
 Route::get('/api/jadwal', function () {
@@ -80,4 +78,3 @@ Route::get('/informasi', function () {
 
 Route::get('/admin/grafik/jumlah-pemakai', [GrafikController::class, 'jumlahPemakai'])->name('admin.grafik.pemakai');
 Route::get('/admin/grafik/rekapitulasi', [GrafikController::class, 'rekapitulasi'])->name('admin.grafik.rekap');
-
