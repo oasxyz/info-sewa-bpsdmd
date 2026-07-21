@@ -7,7 +7,7 @@
 @endpush
 
 @section('nav-cta')
-<a href="#formulir" class="btn-pesan">Pesan Gedung</a>
+<a href="#formulir" class="btn-lihat-jadwal">Pesan Gedung</a>
 @endsection
 
 @section('content')

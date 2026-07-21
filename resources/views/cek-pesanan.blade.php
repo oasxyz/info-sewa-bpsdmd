@@ -3,7 +3,7 @@
 @section('title', 'Cek Pemesanan - Info Sewa BPSDMD Provinsi Jawa Tengah')
 
 @section('nav-cta')
-<a href="{{ url('/pesan') }}" class="btn-pesan">Pesan Gedung</a>
+<a href="{{ url('/pesan') }}" class="btn-lihat-jadwal">Pesan Gedung</a>
 @endsection
 
 @push('styles')

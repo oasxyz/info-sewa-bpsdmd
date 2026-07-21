@@ -1,0 +1,246 @@
+/* ===== NAVBAR ===== */
+.navbar-custom {
+  padding: 28px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: var(--black-bg);
+}
+
+.navbar-grid {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Nav links (desktop) */
+.nav-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.nav-links li a {
+  color: var(--peach-bg);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.15rem;
+  min-width: 90px;
+  text-align: center;
+  padding: 8px 4px;
+  display: block;
+}
+
+.nav-links li a:hover {
+  opacity: .7;
+}
+
+.nav-links li a.active {
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: var(--yellow-font);
+  text-underline-offset: 6px;
+}
+
+/* logo */
+.brand-logo {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--yellow-font);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 1px rgba(0,0,0,.06);
+}
+
+.brand-logo img {
+  width: 34px;
+  height: 34px;
+}
+
+.brand-text-main {
+  color: var(--yellow-font);
+  font-weight: 700;
+  font-size: 1.15rem;
+  line-height: 1.2;
+  letter-spacing: .3px;
+}
+
+.brand-text-sub {
+  color: var(--peach-bg);
+  font-size: .82rem;
+  line-height: 1.2;
+}
+
+/* Right section */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-self: end;
+}
+
+/* CTA Button */
+.btn-lihat-jadwal {
+  background: var(--yellow-font);
+  color: #000000;
+  border: none;
+  border-radius: 999px;
+  padding: 14px 30px;
+  font-weight: 700;
+  font-size: 1rem;
+  white-space: nowrap;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-lihat-jadwal:hover {
+  background: #fff;
+  color: #fed136;
+}
+
+#jadwal {
+  scroll-margin-top: 72px;
+}
+
+/* Hamburger (hidden by default) */
+.navbar-hamburger {
+  display: none;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 4px;
+  line-height: 1;
+}
+
+.navbar-hamburger:hover {
+  color: var(--yellow-font);
+}
+
+/* Offcanvas Mobile Menu */
+.offcanvas {
+  background: var(--black-bg) !important;
+  color: #fff;
+}
+
+#offcanvasNav {
+  width: 280px !important;
+  max-width: 70vw !important;
+}
+
+.offcanvas .btn-close {
+  filter: invert(1);
+}
+
+.mobile-nav-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mobile-nav-links li a {
+  display: block;
+  color: #c9cdd1;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 500;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.mobile-nav-links li a:hover {
+  color: #fff;
+}
+
+.mobile-nav-links li a.active {
+  color: var(--yellow-font);
+  font-weight: 700;
+}
+
+.mobile-cta .btn-lihat-jadwal {
+  display: block;
+  text-align: center;
+  width: 100%;
+}
+
+@media (min-width: 992px) {
+  .navbar-right {
+    min-width: 155px;
+    justify-content: flex-end;
+  }
+}
+
+@media (max-width: 991px) {
+  .nav-links { display: none; }
+  .navbar-hamburger { display: block; }
+  .navbar-right .btn-lihat-jadwal { display: none; }
+}
+
+@media (max-width: 860px) {
+  .hero h1 { font-size: 2.3rem; }
+  .carousel-slide { height: 260px; }
+}
+
+/* ===== FOOTER ===== */
+footer.site-footer {
+  background: var(--yellow-font);
+  border-top: 1px solid var(--black-bg);
+  color: var(--text-gray);
+  padding: 50px 20px 40px;
+  font-size: .85rem;
+}
+
+footer.site-footer h6 {
+  color: var(--black-bg);
+  font-weight: 700;
+  font-size: .85rem;
+  margin-bottom: 14px;
+  letter-spacing: .3px;
+}
+
+footer.site-footer p { 
+  margin-bottom: 4px; 
+  line-height: 1.6; 
+}
+
+footer.site-footer a {
+  color: var(--text-gray);
+  text-decoration: none;
+}
+
+footer.site-footer a:hover { 
+  color: var(--text-dark); 
+  text-decoration: underline;
+}
+
+.footer-social a {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid var(--black-bg);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px;
+  color: var(--black-bg);
+  font-size: .85rem;
+}
+
+.footer-social a:hover { 
+  background: var(--black-bg); 
+  border-color: var(--black-bg);
+  color: #fff; 
+}
+
+.footer-social a:hover i,
+.footer-social a:hover .bi::before {
+  color:#fff;
+}
