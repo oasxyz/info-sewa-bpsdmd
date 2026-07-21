@@ -51,33 +51,6 @@
             <button type="submit" class="btn-login">Masuk</button>
         </form>
     </div>
-
-    <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <h5>BPSDMD <br> PROVINSI JAWA TENGAH</h5>
-                    <p>
-                        Jl. Setiabudi No.201 A Semarang 50263<br>
-                        Telepon : 024-7460666<br>
-                        Faksimile : 7473701<br>
-                        Email : bpsdmd@jatengprov.go.id
-                    </p>
-                </div>
-                <div class="col-md-4">
-                    <h5>Link Terkait</h5>
-                    <a href="#">Website BPSDMD</a><br>
-                    <a href="#">PPID BPSDMD</a>
-                </div>
-                <div class="col-md-4 text-md-end">
-                    <h5>Follow Us</h5>
-                    <i class="bi bi-instagram fs-4"></i>
-                    <i class="bi bi-facebook fs-4 ms-2"></i>
-                    <i class="bi bi-twitter-x fs-4 ms-2"></i>
-                </div>
-            </div>
-        </div>
-    </footer>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

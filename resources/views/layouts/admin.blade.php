@@ -63,17 +63,11 @@
     </a>
             </li>
 
-            <li class="sidebar-item has-submenu {{ request()->is('admin/laporan*') ? 'open active' : '' }}">
-                <a href="#" class="submenu-toggle">
+            <li class="sidebar-item {{ request()->is('admin/laporan*') ? 'active' : '' }}">
+                <a href="{{ route('admin.laporan') }}">
                     <i class="bi bi-bar-chart-line"></i>
                     <span class="nav-text">Laporan</span>
-                    <i class="bi bi-chevron-down submenu-caret"></i>
                 </a>
-                <ul class="submenu {{ request()->is('admin/laporan*') ? 'open' : '' }}">
-                    <li><a href="{{ route('admin.laporan.bayar_dimuka') }}"><span class="nav-text">Laporan Bayar Dimuka</span></a></li>
-                    <li><a href="{{ route('admin.laporan.penerimaan') }}"><span class="nav-text">Laporan Penerimaan</span></a></li>
-                    <li><a href="{{ route('admin.laporan.pemakai_gedung') }}"><span class="nav-text">Laporan Pemakai Gedung</span></a></li>
-                </ul>
             </li>
 
             <li class="sidebar-item has-submenu {{ request()->is('admin/grafik*') ? 'open active' : '' }}">
@@ -118,33 +112,6 @@
         <main class="admin-content">
             @yield('content')
         </main>
-
-        <!-- ================= FOOTER (samain kayak public site) ================= -->
-        <footer class="site-footer">
-            <div class="footer-inner">
-                <div class="footer-col">
-                    <h6>BPSDMD<br>PROVINSI JAWA TENGAH</h6>
-                    <p>Jl. Setiabudi No. 201 A, Semarang 50263</p>
-                    <p>Telepon: 024-7472046</p>
-                    <p>Faximile: 7472930</p>
-                    <p>Email: bpsdmd@jatengprov.go.id</p>
-                </div>
-                <div class="footer-col footer-col-center">
-                    <h6>Link Terkait</h6>
-                    <p><a href="#">Website BPSDMD</a></p>
-                    <p><a href="#">PPID BPSDMD</a></p>
-                </div>
-                <div class="footer-col footer-col-end">
-                    <h6>Follow Us</h6>
-                    <div class="footer-social">
-                        <a href="#"><i class="bi bi-instagram"></i></a>
-                        <a href="#"><i class="bi bi-facebook"></i></a>
-                        <a href="#"><i class="bi bi-twitter-x"></i></a>
-                    </div>
-                </div>
-            </div>
-        </footer>
-
     </div>
 </div>
 
