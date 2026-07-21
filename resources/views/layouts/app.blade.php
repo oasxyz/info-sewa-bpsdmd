@@ -18,7 +18,9 @@
 {{-- navbar --}}
 @include('partials.navbar')
 
-@yield('content')
+<main class="content-wrap">
+  @yield('content')
+</main>
 
 {{-- footer --}}
 @include('partials.footer')
