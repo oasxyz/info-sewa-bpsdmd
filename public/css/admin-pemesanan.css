@@ -141,3 +141,64 @@
   background: #4a8ae0;
   color: #fff;
 }
+
+/* ===== FORM TAMBAH ===== */
+.form-tambah-card {
+  background: #fff;
+  border: 1px solid #e6e6e6;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0,0,0,.08);
+  overflow: hidden;
+}
+.form-tambah-header {
+  background: #212529;
+  color: #fed136;
+  padding: 16px 24px;
+  font-weight: 700;
+  font-size: 1.6rem;
+  text-align: center;
+  letter-spacing: .3px;
+}
+.form-tambah-body {
+  padding: 32px;
+}
+.form-tambah-body .form-label {
+  font-weight: 600;
+  font-size: 1.4rem;
+  margin-bottom: 6px;
+}
+.form-tambah-body .form-label .req {
+  color: #c0324a;
+  margin-left: 2px;
+}
+.form-tambah-body .form-control,
+.form-tambah-body .form-select {
+  border: 1px solid #d8d8d8;
+  border-radius: 5px;
+  padding: 10px 14px;
+  font-size: 1.2rem;
+}
+.form-tambah-body .form-control:focus,
+.form-tambah-body .form-select:focus {
+  border-color: #17150f;
+  box-shadow: 0 0 0 .15rem rgba(23,21,15,.08);
+}
+.radio-group {
+  margin-top: 10px;
+  display: flex;
+  gap: 22px;
+}
+.btn-simpan {
+  width: 100%;
+  background: #212529;
+  color: #fed136;
+  border: none;
+  padding: 14px;
+  font-weight: 700;
+  font-size: 1.4rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.btn-simpan:hover {
+  background: #000;
+}

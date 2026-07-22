@@ -8,17 +8,6 @@
 
 @push('styles')
 <link rel="stylesheet" href="{{ asset('css/pesan.css') }}">
-<style>
-.hasil-card { margin-top: 24px; }
-.info-bayar {
-  background: #e6f0ff;
-  border: 1px solid #6aa8ff;
-  border-radius: 8px;
-  padding: 20px;
-}
-.info-bayar h6 { color: #1a4d8f; font-weight: 700; margin-bottom: 12px; }
-.info-bayar p { margin-bottom: 4px; font-size: .9rem; }
-</style>
 @endpush
 
 @section('content')

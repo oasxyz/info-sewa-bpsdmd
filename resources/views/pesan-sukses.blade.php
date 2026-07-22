@@ -4,41 +4,6 @@
 
 @push('styles')
 <link rel="stylesheet" href="{{ asset('css/pesan.css') }}">
-<style>
-.status-badge {
-  display: inline-block;
-  padding: 6px 14px;
-  border-radius: 999px;
-  font-size: .85rem;
-  font-weight: 700;
-}
-.status-proses        { background: #fff6d8; color: #8a6d00; border: 1px solid #fed136; }
-.status-terverifikasi { background: #e6f0ff; color: #1a4d8f; border: 1px solid #6aa8ff; }
-.status-dipesan       { background: #e5f6e8; color: #1e6b2e; border: 1px solid #6aa84f; }
-.status-dibatalkan    { background: #fbe7e7; color: #7a1f1f; border: 1px solid #d97b7b; }
-
-.info-box {
-  border-radius: 8px;
-  padding: 24px;
-  margin-bottom: 20px;
-}
-.info-box-verif {
-  background: #fff6d8;
-  border: 1px solid #fed136;
-}
-.info-box-bayar {
-  background: #e6f0ff;
-  border: 1px solid #6aa8ff;
-}
-.info-box-selesai {
-  background: #e5f6e8;
-  border: 1px solid #6aa84f;
-}
-.info-box-batal {
-  background: #fbe7e7;
-  border: 1px solid #d97b7b;
-}
-</style>
 @endpush
 
 @section('content')
@@ -133,11 +98,13 @@
       @endswitch
 
       {{-- TOMBOL --}}
-      <div class="text-center mt-4 d-flex justify-content-center gap-3 flex-wrap">
-        <a href="{{ url('/') }}" class="btn btn-secondary">Kembali ke Beranda</a>
-        <button onclick="window.print()" class="btn btn-primary">Cetak</button>
-        @if($pemesanan->status === 'proses' || $pemesanan->status === 'terverifikasi')
-        @endif
+       <div class="d-flex flex-column flex-sm-row justify-content-center align-items-center gap-3 gap-sm-5">
+        <div class="text-center">
+          <a href="{{ url('/') }}" class="btn btn-secondary" style="min-width: 180px;">Kembali ke Beranda</a>
+        </div>
+        <div class="text-center">
+          <button onclick="window.print()" class="btn btn-primary" style="min-width: 180px;">Cetak</button>
+        </div>
       </div>
 
     </div>
