@@ -78,7 +78,7 @@
               @endif
 
               @if(in_array($p->status, ['terverifikasi', 'dipesan']))
-                <a href="#" class="btn-aksi btn-mou">MOU</a>
+                <a href="{{ route('admin.surat.mou', $p->id) }}" class="btn-aksi btn-mou">MOU</a>
               @endif
 
               <div class="aksi-surat">
