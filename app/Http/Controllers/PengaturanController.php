@@ -14,17 +14,17 @@ class PengaturanController extends Controller
         if (! session()->has('login_user')) {
             return redirect()->route('admin.login');
         }
-
+    
         $users = DB::table('user')->orderBy('no')->get();
         $kontaks = DB::table('kontak')->orderBy('no')->get();
         $sekretaris = DB::table('pejabat')->where('posisi', 'sekretaris')->first();
         $bendahara = DB::table('pejabat')->where('posisi', 'bendahara')->first();
-
+        $kepala = DB::table('pejabat')->where('posisi', 'kepala')->first();
+    
         return view('auth.pengaturan-user', compact(
-            'users', 'kontaks', 'sekretaris', 'bendahara'
+            'users', 'kontaks', 'sekretaris', 'bendahara', 'kepala'
         ));
     }
-
     // ===== HALAMAN: PENGATURAN GEDUNG =====
     public function indexGedung()
     {
@@ -168,4 +168,6 @@ class PengaturanController extends Controller
 
         return back()->with('success', 'Fasilitas berhasil diperbarui.');
     }
+
+
 }

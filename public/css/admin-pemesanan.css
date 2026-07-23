@@ -141,3 +141,32 @@
   background: #4a8ae0;
   color: #fff;
 }
+
+
+.aksi-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+
+.btn-mou {
+  display: block;
+  margin-top: 8px;
+}
+
+
+.aksi-surat {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+
+.btn-aksi {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+}

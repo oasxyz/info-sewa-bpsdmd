@@ -20,6 +20,7 @@
     <button type="button" class="settings-tab-btn" data-tab="contact-person">Contact Person</button>
     <button type="button" class="settings-tab-btn" data-tab="sekretaris">Sekretaris</button>
     <button type="button" class="settings-tab-btn" data-tab="bendahara">Bendahara</button>
+    <button type="button" class="settings-tab-btn" data-tab="kepala">Kepala BPSDMD</button>
   </div>
 
   <!-- ===== TAB: MANAGE USER ===== -->
@@ -130,6 +131,22 @@
           @method('PUT')
           <input type="text" name="nama" class="form-control" value="{{ $bendahara->nama ?? '' }}" placeholder="Nama" required>
           <input type="text" name="nip" class="form-control" value="{{ $bendahara->nip ?? '' }}" placeholder="NIP" required>
+          <button type="submit" class="btn-icon btn-check" title="Simpan"><i class="bi bi-check-lg"></i></button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== TAB: KEPALA BPSDMD ===== -->
+  <div class="settings-tab-panel" id="tab-kepala">
+    <div class="settings-card">
+      <div class="settings-card-header">Kepala BPSDMD</div>
+      <div class="settings-card-body">
+        <form action="{{ url('/admin/pengaturan/pejabat/kepala') }}" method="POST" class="row-form pejabat-form">
+          @csrf
+          @method('PUT')
+          <input type="text" name="nama" class="form-control" value="{{ $kepala->nama ?? '' }}" placeholder="Nama" required>
+          <input type="text" name="nip" class="form-control" value="{{ $kepala->nip ?? '' }}" placeholder="NIP" required>
           <button type="submit" class="btn-icon btn-check" title="Simpan"><i class="bi bi-check-lg"></i></button>
         </form>
       </div>
