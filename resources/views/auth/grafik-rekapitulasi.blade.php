@@ -33,48 +33,16 @@
   </div>
 </div>
 
-@push('scripts')
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-    const chartLabels = @json($chartLabels);
-    const chartDatasets = @json($chartDatasets);
-    const pieLabels = @json($pieLabels);
-    const pieData = @json($pieData);
-
-    new Chart(document.getElementById('barChart'), {
-        type: 'bar',
-        data: {
-            labels: chartLabels,
-            datasets: chartDatasets,
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            scales: {
-                y: {
-                    beginAtZero: true,
-                    title: { display: true, text: 'Jumlah Pemakai' },
-                },
-            },
-        },
-    });
-
-    new Chart(document.getElementById('pieChart'), {
-        type: 'pie',
-        data: {
-            labels: pieLabels,
-            datasets: [{
-                data: pieData,
-                backgroundColor: ['#fed136', '#212529', '#4caf50', '#ff9800', '#2196f3', '#e91e63', '#9c27b0', '#00bcd4', '#795548', '#607d8b'],
-            }],
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-        },
-    });
-});
+const chartLabels = @json($chartLabels);
+const chartDatasets = @json($chartDatasets);
+const pieLabels = @json($pieLabels);
+const pieData = @json($pieData);
 </script>
+
+@push('scripts')
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="{{ asset('js/admin-grafik-rekapitulasi.js') }}"></script>
 @endpush
 
 @endsection
