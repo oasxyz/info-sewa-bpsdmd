@@ -129,10 +129,8 @@
   <div class="text-center">
     <a href="{{ route('cek.status') }}" class="btn btn-secondary" style="min-width: 180px;">Kembali ke Cek Pemesanan</a>
   </div>
-  <div class="text-center">
-    <button onclick="window.print()" class="btn btn-primary" style="min-width: 180px;">Cetak</button>
+    <a href="{{ route('pesan.cetak', $pemesanan->kode_booking) }}" class="btn btn-primary" style="min-width: 180px;" target="_blank">Cetak</a>
   </div>
-</div>
      </div>
 
     </div>

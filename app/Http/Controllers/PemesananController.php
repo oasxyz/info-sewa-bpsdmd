@@ -6,6 +6,10 @@ use App\Models\Pemesan;
 use App\Models\Pemakai;
 use App\Models\Gedung;
 use Illuminate\Http\Request;
+use App\Support\TanggalIndonesia;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 class PemesananController extends Controller
 {
@@ -130,5 +134,37 @@ public function sukses($kode_booking)
 {
     $pemesanan = Pemesan::where('kode_booking', $kode_booking)->firstOrFail();
     return view('pesan-sukses', compact('pemesanan'));
+}
+
+public function cetakBukti($kode_booking)
+{
+    $pemesan = Pemesan::where('kode_booking', $kode_booking)->firstOrFail();
+    $gedung = DB::table('gedung')->where('gedung', $pemesan->gedung)->first();
+
+    $tanggalPakai = Carbon::parse($pemesan->tanggal_pakai);
+    $tanggalPesan = Carbon::parse($pemesan->tanggal_pesan);
+
+    $tarif = match ($pemesan->waktu) {
+        'SIANG' => $gedung->hargasiang ?? 0,
+        'MALAM' => $gedung->hargamalam ?? 0,
+        '1HARI' => $gedung->hargahari ?? 0,
+        default => 0,
+    };
+
+    $data = [
+        'pemesan' => $pemesan,
+        'hari' => TanggalIndonesia::hari($tanggalPakai),
+        'tanggal' => $tanggalPakai->format('d'),
+        'bulan' => TanggalIndonesia::bulan($tanggalPakai),
+        'tahun' => $tanggalPakai->format('Y'),
+        'waktu' => $pemesan->waktu,
+        'tarif' => $tarif,
+        'terbilang' => TanggalIndonesia::rupiahTerbilang($tarif),
+        'tanggalPesan' => $tanggalPesan->format('d/m/Y H:i:s'),
+        'tanggalskr' => now()->format('d/m/Y H:i:s'),
+    ];
+
+    $pdf = Pdf::loadView('pdf.bukti-pemesanan', $data);
+    return $pdf->stream('Bukti Pemesanan - ' . $pemesan->pemesan . '.pdf');
 }
 }

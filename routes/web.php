@@ -79,6 +79,8 @@ Route::get('/informasi', function () {
 Route::get('/admin/grafik/jumlah-pemakai', [GrafikController::class, 'jumlahPemakai'])->name('admin.grafik.pemakai');
 Route::get('/admin/grafik/rekapitulasi', [GrafikController::class, 'rekapitulasi'])->name('admin.grafik.rekap');
 
+// SURAT
 Route::get('/admin/pemesanan/{id}/surat-permohonan', [SuratController::class, 'permohonan'])->name('admin.surat.permohonan');
 Route::get('/admin/pemesanan/{id}/surat-balasan', [SuratController::class, 'balasan'])->name('admin.surat.balasan');
 Route::get('/admin/pemesanan/{id}/mou', [SuratController::class, 'mou'])->name('admin.surat.mou');
+Route::get('/pesan/{kode_booking}/cetak', [PemesananController::class, 'cetakBukti'])->name('pesan.cetak');
