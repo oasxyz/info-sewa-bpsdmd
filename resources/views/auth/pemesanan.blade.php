@@ -78,12 +78,12 @@
               @endif
 
               @if(in_array($p->status, ['terverifikasi', 'dipesan']))
-                <a href="{{ route('admin.surat.mou', $p->id) }}" target="_blank" class="btn-aksi btn-mou">MOU</a>
+                <a href="{{ route('admin.surat.mou', $p->id) }}" class="btn-aksi btn-mou" target="_blank">MOU</a>
               @endif
 
               <div class="aksi-surat">
-                <a href="#" class="btn-aksi btn-surat" target="_blank">Surat Permohonan</a>
-                <a href="#" class="btn-aksi btn-surat" target="_blank">Surat Balasan</a>
+                <a href="{{ route('admin.surat.permohonan', $p->id) }}" class="btn-aksi btn-surat" target="_blank">Surat Permohonan</a>
+                <a href="{{ route('admin.surat.balasan', $p->id) }}" class="btn-aksi btn-surat" target="_blank">Surat Balasan</a>
               </div>
             </td>
           </tr>
