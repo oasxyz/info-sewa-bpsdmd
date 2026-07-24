@@ -102,9 +102,7 @@
         <div class="text-center">
           <a href="{{ url('/') }}" class="btn btn-secondary" style="min-width: 180px;">Kembali ke Beranda</a>
         </div>
-        <div class="text-center">
-          <button onclick="window.print()" class="btn btn-primary" style="min-width: 180px;">Cetak</button>
-        </div>
+          <a href="{{ route('pesan.cetak', $pemesanan->kode_booking) }}" class="btn btn-primary" style="min-width: 180px;" target="_blank">Cetak</a>
       </div>
 
     </div>

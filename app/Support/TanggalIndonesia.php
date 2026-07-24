@@ -42,21 +42,21 @@ class TanggalIndonesia
         } elseif ($nilai < 20) {
             $temp = self::terbilang($nilai - 10) . " belas";
         } elseif ($nilai < 100) {
-            $temp = self::terbilang(intdiv($nilai, 10)) . " puluh" . self::terbilang($nilai % 10);
+            $temp = self::terbilang(intdiv($nilai, 10)) . " puluh " . self::terbilang($nilai % 10);
         } elseif ($nilai < 200) {
-            $temp = " seratus" . self::terbilang($nilai - 100);
+            $temp = " seratus " . self::terbilang($nilai - 100);
         } elseif ($nilai < 1000) {
-            $temp = self::terbilang(intdiv($nilai, 100)) . " ratus" . self::terbilang($nilai % 100);
+            $temp = self::terbilang(intdiv($nilai, 100)) . " ratus " . self::terbilang($nilai % 100);
         } elseif ($nilai < 2000) {
-            $temp = " seribu" . self::terbilang($nilai - 1000);
+            $temp = " seribu " . self::terbilang($nilai - 1000);
         } elseif ($nilai < 1000000) {
-            $temp = self::terbilang(intdiv($nilai, 1000)) . " ribu" . self::terbilang($nilai % 1000);
+            $temp = self::terbilang(intdiv($nilai, 1000)) . " ribu " . self::terbilang($nilai % 1000);
         } elseif ($nilai < 1000000000) {
-            $temp = self::terbilang(intdiv($nilai, 1000000)) . " juta" . self::terbilang($nilai % 1000000);
+            $temp = self::terbilang(intdiv($nilai, 1000000)) . " juta " . self::terbilang($nilai % 1000000);
         } elseif ($nilai < 1000000000000) {
-            $temp = self::terbilang(intdiv($nilai, 1000000000)) . " milyar" . self::terbilang((int) fmod($nilai, 1000000000));
+            $temp = self::terbilang(intdiv($nilai, 1000000000)) . " milyar " . self::terbilang((int) fmod($nilai, 1000000000));
         } else {
-            $temp = self::terbilang(intdiv($nilai, 1000000000000)) . " triliun" . self::terbilang((int) fmod($nilai, 1000000000000));
+            $temp = self::terbilang(intdiv($nilai, 1000000000000)) . " triliun " . self::terbilang((int) fmod($nilai, 1000000000000));
         }
 
         return trim($temp);
@@ -64,6 +64,6 @@ class TanggalIndonesia
 
     public static function rupiahTerbilang(int $nilai): string
     {
-        return ucfirst(self::terbilang($nilai)) . ' Rupiah';
+        return ucwords(self::terbilang($nilai)) . ' Rupiah';
     }
 }
